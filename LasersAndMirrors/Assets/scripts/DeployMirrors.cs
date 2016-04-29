@@ -18,6 +18,8 @@ public class DeployMirrors : MonoBehaviour {
             Vector3 pos = Camera.main.ScreenToWorldPoint(spawnPos);
             Instantiate(mirror, pos, Quaternion.identity);
 
+            Debug.Log("zweiter");
+
             //Camera.main.getComponent<RotateMirrors>().Rotation = false;
         }
 	}

@@ -27,6 +27,7 @@ public class RotateMirrors : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("erster");
             rotation = false;
             RaycastHit vHit = new RaycastHit();
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
