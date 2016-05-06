@@ -4,7 +4,7 @@ using System.Collections;
 public class DeployMirrors : MonoBehaviour {
 
     public GameObject mirror;
-    private float z = 2.5f;
+    private float z = 5;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,9 +18,8 @@ public class DeployMirrors : MonoBehaviour {
             Vector3 pos = Camera.main.ScreenToWorldPoint(spawnPos);
             Instantiate(mirror, pos, Quaternion.identity);
 
-            Debug.Log("zweiter");
-
-            //Camera.main.getComponent<RotateMirrors>().Rotation = false;
+            Camera.main.GetComponent<DrawLaser>().startLaser();
+            Camera.main.GetComponent<DrawLaser>().drawLaser();
         }
 	}
 }

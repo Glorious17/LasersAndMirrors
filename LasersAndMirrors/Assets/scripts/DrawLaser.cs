@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DrawLaser : MonoBehaviour {
 
@@ -7,51 +8,49 @@ public class DrawLaser : MonoBehaviour {
     private int vertexCount = 1;
     private Vector3 start;
     private LineRenderer lr;
-
     private Vector3 normalV;
 
-    private Ray ray;
-    private RaycastHit hit;
+    Ray r;
     // Use this for initialization
     void Start () {
-        hit = new RaycastHit();
-        ray = new Ray();
-        lr = laser.GetComponent<LineRenderer>();
-        start = new Vector3(-2, -1.4f, -9);
-        drawLine();
-        normalV = new Vector3(1.0f,0,-1.0f);
-        normalV = normalV.normalized;
+        lr = laser.GetComponent<LineRenderer>(); //Linerenderer zur Darstellung des Lasers
+        lr.SetVertexCount(vertexCount); //Anzahl der Punkte des Lasers festlegen
+        start = new Vector3(-2, 0, -13); //Startpunkt des Lasers
 
+        r = new Ray(start, new Vector3(1.0f, 0.0f, 0.0f)); //Parameter: start -> Startposition des Rays, Vector3 -> Richtungsvektor
+        startLaser();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        vertexCount = 1;
-        
-        ray.origin = start;
-        ray.direction = new Vector3(1, 0, 0);
-        
-        lr.SetVertexCount(vertexCount);
-        lr.SetPosition(0, start);
 
-        if (Physics.Raycast(ray, out hit, 100))
+    public void drawLaser()
+    {
+        RaycastHit vHit;
+        Vector3 nextVec = new Vector3(0,0,0);      
+
+        if (Physics.Raycast(r, out vHit, 40))//in den nächsten 40 Einheiten, wird überprüft, ob eine Kollision stattfindet
         {
-            Vector3 hitpoint = hit.point;
-            newCount();
-            lr.SetVertexCount(vertexCount);
-            lr.SetPosition(vertexCount-1, hitpoint);
-            newCount();
-            GameObject go = hit.collider.gameObject;
-            Vector3 nextvec = Vector3.Reflect(start, normalV); //Spiegelung anhand eines Vector funktioniert noch nicht
-            lr.SetPosition(vertexCount-1, nextvec);
-            Debug.Log(Vector3.Angle(start, nextvec));
+            if(vHit.collider.gameObject.tag == "Mirror")
+            {
+                nextVec = vHit.collider.gameObject.GetComponent<Degree>().getNormal();
+            }
+            r = new Ray(vHit.point, nextVec);
+
+            newCount(); //Anzahl der Vertices wird hoch gesetzt
+            lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
+            newCount(); //Anzahl der Vertices wird erneut hochgesetzt, da jetzt an diesem Punkt der Laser vom Spiegel zurückgeworfen wird
+            lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen
+            drawLaser(); //rekursiver Aufruf für den darauf folgenden Raycast
+        }
+        else
+        {
+            Debug.Log("nocollision! :-)");
         }
     }
 
-    void drawLine()
-    {        
-        lr.SetVertexCount(vertexCount);
-        lr.SetPosition(0, start);        
+    public void startLaser()
+    {
+        vertexCount = 1;
+        lr.SetPosition(0, start);
+        r = new Ray(start, new Vector3(1.0f, 0.0f, 0.0f));
     }
 
     private void newCount()

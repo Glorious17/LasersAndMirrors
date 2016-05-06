@@ -27,7 +27,6 @@ public class RotateMirrors : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("erster");
             rotation = false;
             RaycastHit vHit = new RaycastHit();
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -36,9 +35,11 @@ public class RotateMirrors : MonoBehaviour {
                 {
                     go = vHit.collider.gameObject;
                     rotation = true;
-                    go.transform.parent.Rotate(0, 45, 0);
+                    go.transform.parent.Rotate(0, 45.0f, 0);
                 }
             }
+            Camera.main.GetComponent<DrawLaser>().startLaser();
+            Camera.main.GetComponent<DrawLaser>().drawLaser();
         }
     }
 
