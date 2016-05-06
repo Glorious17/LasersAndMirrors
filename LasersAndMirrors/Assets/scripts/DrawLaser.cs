@@ -31,14 +31,14 @@ public class DrawLaser : MonoBehaviour {
             if(vHit.collider.gameObject.tag == "Mirror")
             {
                 nextVec = vHit.collider.gameObject.GetComponent<Degree>().getNormal();
-            }
-            r = new Ray(vHit.point, nextVec);
+                r = new Ray(vHit.point, nextVec);
 
-            newCount(); //Anzahl der Vertices wird hoch gesetzt
-            lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
-            newCount(); //Anzahl der Vertices wird erneut hochgesetzt, da jetzt an diesem Punkt der Laser vom Spiegel zurückgeworfen wird
-            lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen
-            drawLaser(); //rekursiver Aufruf für den darauf folgenden Raycast
+                newCount(); //Anzahl der Vertices wird hoch gesetzt
+                lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
+                newCount(); //Anzahl der Vertices wird erneut hochgesetzt, da jetzt an diesem Punkt der Laser vom Spiegel zurückgeworfen wird
+                lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen
+                drawLaser(); //rekursiver Aufruf für den darauf folgenden Raycast
+            }
         }
         else
         {

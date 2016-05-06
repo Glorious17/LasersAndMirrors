@@ -35,7 +35,7 @@ public class RotateMirrors : MonoBehaviour {
                 {
                     go = vHit.collider.gameObject;
                     rotation = true;
-                    go.transform.parent.Rotate(0, 45.0f, 0);
+                    go.transform.parent.Rotate(0, 90.0f, 0);
                 }
             }
             Camera.main.GetComponent<DrawLaser>().startLaser();
