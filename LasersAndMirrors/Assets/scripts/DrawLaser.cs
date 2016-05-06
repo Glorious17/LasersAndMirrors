@@ -24,26 +24,29 @@ public class DrawLaser : MonoBehaviour {
     public void drawLaser()
     {
         RaycastHit vHit;
-        Vector3 nextVec = new Vector3(0,0,0);      
+        Vector3 nextVec = new Vector3(2,0,0);
+        startLaser();
+        Vector3 oldHitpoint;
 
-        if (Physics.Raycast(r, out vHit, 40))//in den nächsten 40 Einheiten, wird überprüft, ob eine Kollision stattfindet
+        while (Physics.Raycast(r, out vHit, 40))//in den nächsten 40 Einheiten, wird überprüft, ob eine Kollision stattfindet
         {
             if(vHit.collider.gameObject.tag == "Mirror")
             {
-                nextVec = vHit.collider.gameObject.GetComponent<Degree>().getNormal();
-                r = new Ray(vHit.point, nextVec);
+                if (vHit.collider.gameObject.GetComponent<Degree>().angleUp())              
+                    nextVec = new Vector3(10 * nextVec.z, nextVec.y, 10 * nextVec.x);               
+                else
+                    nextVec = new Vector3(-10 * nextVec.z, nextVec.y, -10 * nextVec.x);
 
+                r = new Ray(vHit.point, nextVec);
                 newCount(); //Anzahl der Vertices wird hoch gesetzt
                 lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
-                newCount(); //Anzahl der Vertices wird erneut hochgesetzt, da jetzt an diesem Punkt der Laser vom Spiegel zurückgeworfen wird
-                lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen
-                drawLaser(); //rekursiver Aufruf für den darauf folgenden Raycast
+
+                Debug.Log("Schleif");
             }
         }
-        else
-        {
-            Debug.Log("nocollision! :-)");
-        }
+        newCount(); //Anzahl der Vertices wird erneut hochgesetzt, da jetzt an diesem Punkt der Laser vom Spiegel zurückgeworfen wird
+        lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen 
+        Debug.Log("nocollision! :-)");       
     }
 
     public void startLaser()

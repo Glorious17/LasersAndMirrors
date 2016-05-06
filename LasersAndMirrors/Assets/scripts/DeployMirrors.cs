@@ -18,7 +18,6 @@ public class DeployMirrors : MonoBehaviour {
             Vector3 pos = Camera.main.ScreenToWorldPoint(spawnPos);
             Instantiate(mirror, pos, Quaternion.Euler(0, 45, 0));
 
-            Camera.main.GetComponent<DrawLaser>().startLaser();
             Camera.main.GetComponent<DrawLaser>().drawLaser();
         }
 	}
