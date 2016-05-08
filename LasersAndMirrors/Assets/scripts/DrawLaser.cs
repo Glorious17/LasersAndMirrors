@@ -29,7 +29,7 @@ public class DrawLaser : MonoBehaviour {
         RaycastHit vHit;
         Vector3 nextVec = new Vector3(2,0,0);
         startLaser();
-
+        points = new List<RaycastHit>();
         while (Physics.Raycast(r, out vHit, 40))//in den nächsten 40 Einheiten, wird überprüft, ob eine Kollision stattfindet
         {
             if(vHit.collider.gameObject.tag == "Mirror")
@@ -41,17 +41,18 @@ public class DrawLaser : MonoBehaviour {
                     nextVec = new Vector3(-10 * nextVec.z, nextVec.y, -10 * nextVec.x);
 
                 r = new Ray(vHit.point, nextVec);
-                //newCount(); //Anzahl der Vertices wird hoch gesetzt
-                //lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
+                Debug.Log("schliefhcen");
+                newCount(); //Anzahl der Vertices wird hoch gesetzt
+                lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
             }
         }
-        //newCount();
-        //lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen 
+        newCount();
+        lr.SetPosition(vertexCount - 1, vHit.point + nextVec); //einen Punkt in die neue Richtung zeichnen 
     }
 
     public void startLaser()
     {
-        //vertexCount = 1;
+        vertexCount = 1;
         lr.SetPosition(0, start);
         r = new Ray(start, new Vector3(1.0f, 0.0f, 0.0f));
     }
@@ -65,25 +66,24 @@ public class DrawLaser : MonoBehaviour {
     private void changeSpeed(RaycastHit hit)
     {
         speed = new Vector3(0, 0, 0);
-        if (!hit.collider.gameObject.GetComponent<Degree>().angleUp())
+        if (hit.collider.gameObject.GetComponent<Degree>().angleUp())
         {
-            dT = new Vector3(0, 0, 0.001f);
+            dT = new Vector3(dT.z, dT.y, dT.x);
         }
         else {
-            dT = new Vector3(0.001f, 0, 0);
+            dT = new Vector3(-dT.z, dT.y, -dT.x);
         }
     }
-    public void Update()
+    /*public void Update()
     {
         speed = speed + dT;
         lr.SetPosition(i+1, origin + speed);
-        Debug.Log(Vector3.Magnitude(origin + speed) + " und " + Vector3.Magnitude(points[i].point));
-        if (Vector3.Magnitude(origin+ speed) >= Vector3.Magnitude(points[i].point))
+        if (i < points.Count && Vector3.Magnitude(origin+ speed) >= Vector3.Magnitude(points[i].point))
         {
             newCount();
             origin = points[i].point;
             i++;
             changeSpeed(points[i]);
         }
-    }
+    }*/
 }
