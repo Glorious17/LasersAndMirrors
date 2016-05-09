@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DeployMirrors : MonoBehaviour {
 
-	//wird nicht mehr benötigt!
     public GameObject mirror;
     private float z = 5;
 	// Use this for initialization
