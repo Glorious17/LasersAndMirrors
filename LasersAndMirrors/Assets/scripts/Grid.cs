@@ -10,6 +10,7 @@ public class Grid : MonoBehaviour {
 	*/
 	public GameObject mirror;
 	public GameObject marker;
+    public GameObject barrierObject;
 
 	private float z = 5;
 	//Ein 6x10 Grid
@@ -43,6 +44,7 @@ public class Grid : MonoBehaviour {
 		}
 
 		Marker ();
+        barrier();
 	}
 
 	// Update is called once per frame
@@ -139,4 +141,38 @@ public class Grid : MonoBehaviour {
 			}
 		}
 	}
+
+    void barrier()
+    {
+        int rand = Random.Range(0,6);
+        for(int pos = 0; pos < 10; pos += 3)
+        {
+            if (pos < 9)
+            {
+                if (rand == 0 || rand == 5)
+                    spawnBarrier(rand, (Random.Range(0, 3) + pos));
+                else
+                {
+                    if (Random.Range(0, 1) == 0)
+                        spawnBarrier(rand, pos);
+                    else
+                        spawnBarrier(rand, pos + 2);
+                }
+            }
+            else
+            {
+                if (rand == 0 || rand == 5)
+                    spawnBarrier(rand, (Random.Range(0, 2) + pos));
+                else
+                {
+                    spawnBarrier(rand, pos);
+                }
+            }
+        }
+    }
+
+    void spawnBarrier(int x, int y)
+    {
+        Instantiate(barrierObject, new Vector3(fieldx * x, 0, fieldy * y), Quaternion.identity);
+    }
 }
