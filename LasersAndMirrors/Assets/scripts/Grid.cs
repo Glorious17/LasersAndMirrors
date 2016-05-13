@@ -24,6 +24,8 @@ public class Grid : MonoBehaviour {
 	private float fieldx;
 	private float fieldy;
 
+	private bool [,] besetzt;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -43,7 +45,15 @@ public class Grid : MonoBehaviour {
 			gridY [i] = (i + 1) * fieldy;
 		}
 
-		Marker ();
+		besetzt = new bool[y,x];
+
+		for (int i = 0; i < y; i++) {
+			for (int j = 0; j < x; j++) {
+				besetzt [i, j] = false;
+			}
+		}
+
+		//Marker ();
         barrier();
 	}
 
@@ -116,13 +126,23 @@ public class Grid : MonoBehaviour {
 		ytreffer = false;
 
 		Debug.Log ("PRE-DEPLOY");
-		if (!Camera.main.GetComponent<RotateMirrors>().Rotation)
-		{
+		if (besetzt [ypos, xpos] == false) {
 			Debug.Log ("DEPLOY");
-			Vector3 spawnPos = new Vector3(xpos*fieldx + fieldx/2, ypos*fieldy+fieldy/2, z);
-			Vector3 pos = Camera.main.ScreenToWorldPoint(spawnPos);
-			Instantiate(mirror, pos, Quaternion.Euler(0, 45, 0));
+			Vector3 spawnPos = new Vector3 (xpos * fieldx + fieldx / 2, ypos * fieldy + fieldy / 2, z);
+			Vector3 pos = Camera.main.ScreenToWorldPoint (spawnPos);
+			Object newMirror = Instantiate (mirror, pos, Quaternion.Euler (0, 45, 0));
 
+			newMirror.name = "" + ypos + xpos;
+
+			besetzt [ypos, xpos] = true;
+
+			Camera.main.GetComponent<DrawLaser> ().startLaser ();
+			Camera.main.GetComponent<DrawLaser> ().drawLaser ();
+		} 
+		else 
+		{
+			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
+			selectMirror.transform.Rotate(0, 90.0f, 0);
 			Camera.main.GetComponent<DrawLaser>().startLaser();
 			Camera.main.GetComponent<DrawLaser>().drawLaser();
 		}
