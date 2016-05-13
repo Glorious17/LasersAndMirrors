@@ -138,16 +138,16 @@ public class Grid : MonoBehaviour {
 
 			besetzt [ypos, xpos] = true;
 
-			Camera.main.GetComponent<DrawLaser> ().startLaser ();
-			Camera.main.GetComponent<DrawLaser> ().drawLaser ();
+			//Camera.main.GetComponent<DrawLaser> ().startLaser ();
+			//Camera.main.GetComponent<DrawLaser> ().drawLaser ();
 		} 
 		else 
 		{
 			Debug.Log ("TURN");
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
 			selectMirror.transform.Rotate(0, 90.0f, 0);
-			Camera.main.GetComponent<DrawLaser>().startLaser();
-			Camera.main.GetComponent<DrawLaser>().drawLaser();
+			//Camera.main.GetComponent<DrawLaser>().startLaser();
+			//Camera.main.GetComponent<DrawLaser>().drawLaser();
 		}
 
 
