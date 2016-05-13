@@ -54,7 +54,7 @@ public class Grid : MonoBehaviour {
 		}
 
 		//Marker ();
-        barrier();
+        //barrier();
 	}
 
 	// Update is called once per frame
@@ -96,6 +96,8 @@ public class Grid : MonoBehaviour {
 	void OnMouseDown()
 	{
 		Debug.Log ("CLICK");
+
+
 		bool xtreffer = false;
 		bool ytreffer = false;
 
@@ -125,7 +127,7 @@ public class Grid : MonoBehaviour {
 		xtreffer = false;
 		ytreffer = false;
 
-		Debug.Log ("PRE-DEPLOY");
+
 		if (besetzt [ypos, xpos] == false) {
 			Debug.Log ("DEPLOY");
 			Vector3 spawnPos = new Vector3 (xpos * fieldx + fieldx / 2, ypos * fieldy + fieldy / 2, z);
@@ -141,11 +143,14 @@ public class Grid : MonoBehaviour {
 		} 
 		else 
 		{
+			Debug.Log ("TURN");
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
 			selectMirror.transform.Rotate(0, 90.0f, 0);
 			Camera.main.GetComponent<DrawLaser>().startLaser();
 			Camera.main.GetComponent<DrawLaser>().drawLaser();
 		}
+
+
 	}
 
 	void Marker()
