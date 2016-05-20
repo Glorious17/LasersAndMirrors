@@ -12,7 +12,9 @@ public class Grid : MonoBehaviour {
 	public GameObject marker;
     public GameObject barrierObject;
 
-	private float z = 5;
+    private int rand;
+
+    private float z = 5;
 	//Ein 6x10 Grid
 	private const int x = 10;
 	private const int y = 6;
@@ -54,7 +56,7 @@ public class Grid : MonoBehaviour {
 		}
 
 		//Marker ();
-        //barrier();
+        barrier();
 	}
 
 	// Update is called once per frame
@@ -169,35 +171,64 @@ public class Grid : MonoBehaviour {
 
     void barrier()
     {
-        int rand = Random.Range(0,6);
-        for(int pos = 0; pos < 10; pos += 3)
+        int[] position;
+        int x;
+        int y;
+        for (int pos = 0; pos < 9; pos += 3)
         {
-            if (pos < 9)
+            position = location(pos);
+            x = position[0];
+            y = position[1];
+            do
             {
-                if (rand == 0 || rand == 5)
-                    spawnBarrier(rand, (Random.Range(0, 3) + pos));
-                else
-                {
-                    if (Random.Range(0, 1) == 0)
-                        spawnBarrier(rand, pos);
-                    else
-                        spawnBarrier(rand, pos + 2);
-                }
-            }
-            else
-            {
-                if (rand == 0 || rand == 5)
-                    spawnBarrier(rand, (Random.Range(0, 2) + pos));
-                else
-                {
-                    spawnBarrier(rand, pos);
-                }
-            }
+                position = location(pos);
+            } while (position[0] == x && position[1] == y);
+            spawnBarrier(x,y);
+            spawnBarrier(position[0], position[1]);
         }
     }
 
     void spawnBarrier(int x, int y)
     {
-        Instantiate(barrierObject, new Vector3(fieldx * x, 0, fieldy * y), Quaternion.identity);
+        Debug.Log("x = " + x + " y = " + z);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(gridX[x]-(fieldx/2), gridY[y] - (fieldy/2), z));
+        Instantiate(barrierObject, pos, Quaternion.identity);
+    }
+
+    int[] location(int pos)
+    {
+        int[] ro = new int[2];
+        rand = Random.Range(0, 6);
+        if (pos < 9)
+        {
+            if (rand == 0 || rand == 5)
+            {
+                ro[0] = (Random.Range(0, 3) + pos);
+                ro[1] = rand;
+                //((Random.Range(0, 3) + pos), rand);
+            }
+            else
+            {
+                if (Random.Range(0, 2) == 0)
+                {
+                    ro[0] = pos;
+                    ro[1] = rand;
+                    //spawnBarrier(pos, rand);
+                }
+                else
+                {
+                    ro[0] = pos + 2;
+                    ro[1] = rand;
+                    //spawnBarrier(pos + 2, rand);
+                }
+            }
+        }
+        else
+        {
+            ro[0] = pos;
+            ro[1] = rand;
+            //spawnBarrier(pos, rand);
+        }
+        return ro;
     }
 }
