@@ -169,7 +169,7 @@ public class Grid : MonoBehaviour {
 		}
 	}
 
-    void barrier()
+    void barrier() // Durchläuft eine Schleife die wichtig zur Positionsbestimmung für die Hindernisse ist. Anschließend werden insgesamt 6 Hindernisse gespawned.
     {
         int[] position;
         int x;
@@ -188,14 +188,14 @@ public class Grid : MonoBehaviour {
         }
     }
 
-    void spawnBarrier(int x, int y)
+    void spawnBarrier(int x, int y //Laesst die Hindernisse Spawnen
     {
         Debug.Log("x = " + x + " y = " + z);
         Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(gridX[x]-(fieldx/2), gridY[y] - (fieldy/2), z));
         Instantiate(barrierObject, pos, Quaternion.identity);
     }
 
-    int[] location(int pos)
+    int[] location(int pos) // Ausgelagerte Methode zum Bestimmen von ausgewählten Punkten auf dem Grid. Nützlich für die Hindernisse.
     {
         int[] ro = new int[2];
         rand = Random.Range(0, 6);
