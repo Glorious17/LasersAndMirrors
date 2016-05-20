@@ -53,8 +53,8 @@ public class Grid : MonoBehaviour {
 			}
 		}
 
-		//Marker ();
-        //barrier();
+		Marker ();
+        barrier();
 	}
 
 	// Update is called once per frame
