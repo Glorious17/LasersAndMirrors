@@ -55,7 +55,7 @@ public class Grid : MonoBehaviour {
 			}
 		}
 
-		//Marker ();
+		Marker ();
         barrier();
 	}
 
