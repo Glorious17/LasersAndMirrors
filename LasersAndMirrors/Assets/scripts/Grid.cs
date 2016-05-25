@@ -28,6 +28,9 @@ public class Grid : MonoBehaviour {
 
 	private bool [,] besetzt;
 
+	private Vector3 laserStartPos;
+	public GameObject laser;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -56,7 +59,8 @@ public class Grid : MonoBehaviour {
 		}
 
 		Marker ();
-        barrier();
+        //barrier(); //Macht noch Probleme
+		LaserStartPos ();
 	}
 
 	// Update is called once per frame
@@ -139,19 +143,13 @@ public class Grid : MonoBehaviour {
 			newMirror.name = "" + ypos + xpos;
 
 			besetzt [ypos, xpos] = true;
-
-			//Camera.main.GetComponent<DrawLaser> ().startLaser ();
-			//Camera.main.GetComponent<DrawLaser> ().drawLaser ();
 		} 
 		else 
 		{
 			Debug.Log ("TURN");
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
 			selectMirror.transform.Rotate(0, 90.0f, 0);
-			//Camera.main.GetComponent<DrawLaser>().startLaser();
-			//Camera.main.GetComponent<DrawLaser>().drawLaser();
 		}
-
 
 	}
 
@@ -169,7 +167,8 @@ public class Grid : MonoBehaviour {
 		}
 	}
 
-    void barrier() // Durchläuft eine Schleife die wichtig zur Positionsbestimmung für die Hindernisse ist. Anschließend werden insgesamt 6 Hindernisse gespawned.
+    void barrier() // Durchläuft eine Schleife die wichtig zur Positionsbestimmung für die Hindernisse ist. 
+	//Anschließend werden insgesamt 6 Hindernisse gespawned.
     {
         int[] position;
         int x;
@@ -188,7 +187,7 @@ public class Grid : MonoBehaviour {
         }
     }
 
-    void spawnBarrier(int x, int y //Laesst die Hindernisse Spawnen
+	void spawnBarrier(int x, int y) //Laesst die Hindernisse Spawnen
     {
         Debug.Log("x = " + x + " y = " + z);
         Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(gridX[x]-(fieldx/2), gridY[y] - (fieldy/2), z));
@@ -231,4 +230,16 @@ public class Grid : MonoBehaviour {
         }
         return ro;
     }
+
+	void LaserStartPos()
+	{
+		int rand = Random.Range (0,y);
+
+		float xpos = 0; //fieldx/2;
+		float ypos = fieldy/2 + fieldy * rand;
+
+		Vector3 pos = new Vector3(xpos, ypos, z);
+
+		laser.transform.position = Camera.main.ScreenToWorldPoint(pos);
+	}
 }

@@ -13,6 +13,7 @@ public class DrawLaser : MonoBehaviour
     private Vector3 speed = new Vector3(0, 0, 0f);
     List<RaycastHit> points;
     Ray r;
+
     // Use this for initialization
     void Start()
     {
@@ -20,7 +21,8 @@ public class DrawLaser : MonoBehaviour
         points = new List<RaycastHit>();
         lr = laser.GetComponent<LineRenderer>(); //Linerenderer zur Darstellung des Lasers
         lr.SetVertexCount(vertexCount); //Anzahl der Punkte des Lasers festlegen
-        start = new Vector3(-2, 0, -13); //Startpunkt des Lasers
+        //start = new Vector3(-2, 0, -13); //Startpunkt des Lasers
+		start = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.z); //Startpunkt des Lasers
         origin = start;
         r = new Ray(start, new Vector3(1.0f, 0.0f, 0.0f)); //Parameter: start -> Startposition des Rays, Vector3 -> Richtungsvektor
         collisionLaser();
