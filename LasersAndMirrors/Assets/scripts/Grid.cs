@@ -5,7 +5,6 @@ public class Grid : MonoBehaviour {
 
 	/* BUGS
 	 * 
-	 * Erstellen neuer Spiegel nur alle 2 Klicks
 	 * muss auf Touch ausprobiert werden
 	*/
 	public GameObject mirror;
@@ -63,47 +62,25 @@ public class Grid : MonoBehaviour {
 		LaserStartPos ();
 	}
 
+	/*
 	// Update is called once per frame
 	void Update () 
-	{
-		/*
+	{		
 		Touch[] myTouches = Input.touches;
-
-		for(int i = 0; i < Input.touchCount; i++)
-		{
-
-			bool xtreffer = false;
-			bool ytreffer = false;
-
-			for (int j = 0; j < x && xtreffer == false; j++) 
-			{
-				if (myTouches [i].position.x <= gridX [j]) 
-				{
-					Debug.Log ("X: " + j);
-					xtreffer = true;
-				}
-			}
-
-			for (int j = 0; j < y  && ytreffer == false; j++) 
-			{
-				if (myTouches [i].position.y <= gridY [j]) 
-				{
-					Debug.Log ("Y: " + j);
-					ytreffer = true;
-				}
-			}
-
-			xtreffer = false;
-			ytreffer = false;
+		for(int i = 0; i < Input.touchCount; i++){
+			down (myTouches[i].position.x, myTouches[i].position.x);
 		}
-		*/
 	}
+	*/
 
 	void OnMouseDown()
 	{
 		Debug.Log ("CLICK");
+		down (Input.mousePosition.x, Input.mousePosition.y);
+	}
 
-
+	void down(float px, float py)
+	{
 		bool xtreffer = false;
 		bool ytreffer = false;
 
@@ -112,7 +89,7 @@ public class Grid : MonoBehaviour {
 
 		for (int j = 0; j < x && xtreffer == false; j++) 
 		{
-			if (Input.mousePosition.x <= gridX [j]) 
+			if (px <= gridX [j]) 
 			{
 				Debug.Log ("X: " + j);
 				xpos = j;
@@ -122,7 +99,7 @@ public class Grid : MonoBehaviour {
 
 		for (int j = 0; j < y  && ytreffer == false; j++) 
 		{
-			if (Input.mousePosition.y <= gridY [j]) 
+			if (py <= gridY [j]) 
 			{
 				Debug.Log ("Y: " + j);
 				ypos = j;
@@ -150,7 +127,6 @@ public class Grid : MonoBehaviour {
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
 			selectMirror.transform.Rotate(0, 22.5f, 0);
 		}
-
 	}
 
 	void Marker()
@@ -231,7 +207,7 @@ public class Grid : MonoBehaviour {
         return ro;
     }
 
-	void LaserStartPos()
+	void LaserStartPos() //Zufällige Startposition des Lasers
 	{
 		int rand = Random.Range (0,y);
 
