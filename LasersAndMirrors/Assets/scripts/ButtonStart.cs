@@ -10,7 +10,6 @@ public class ButtonStart : MonoBehaviour
         if (GUI.Button(new Rect(10, 70, 50, 30), "Click"))
         {
 			laserStart.GetComponent<DrawLaser>().enabled = true;
-			//Camera.main.GetComponent<DrawLaser>().enabled = true;
         }
 
     }

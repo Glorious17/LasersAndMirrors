@@ -148,7 +148,7 @@ public class Grid : MonoBehaviour {
 		{
 			Debug.Log ("TURN");
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
-			selectMirror.transform.Rotate(0, 90.0f, 0);
+			selectMirror.transform.Rotate(0, 22.5f, 0);
 		}
 
 	}
