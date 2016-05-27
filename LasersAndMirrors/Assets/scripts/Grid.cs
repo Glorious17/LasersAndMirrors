@@ -123,7 +123,8 @@ public class Grid : MonoBehaviour
 		{
 			Debug.Log ("TURN");
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
-			selectMirror.transform.Rotate(0, 22.5f, 0);
+			if(selectMirror.GetComponent<Degree>().getMirrorRot())
+				selectMirror.transform.Rotate(0, 22.5f, 0);
 		}
 	}
 

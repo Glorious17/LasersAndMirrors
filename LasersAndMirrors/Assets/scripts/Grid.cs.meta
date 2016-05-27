@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 81c4acff16a65a84d85de7c031dd1fba
-timeCreated: 1464345633
+timeCreated: 1464387102
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -8,7 +8,7 @@ MonoImporter:
   - mirror: {instanceID: 0}
   - marker: {instanceID: 0}
   - barrierObject: {instanceID: 0}
-  executionOrder: 0
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

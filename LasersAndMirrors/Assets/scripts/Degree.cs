@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Degree : MonoBehaviour
 {
-
+	private bool mirrorRot = true;
     //Anhand der Rotation ausgehend davon, dass nur in 45 Grad rotiert wird, wird der Normalenvektor bestimmt
     public bool angleUp()
     {
@@ -17,7 +17,13 @@ public class Degree : MonoBehaviour
 
         return result;
     }
+	public bool getMirrorRot(){
+		return mirrorRot;
+	}
 
+	public void disableMirrorRot(){
+		mirrorRot = false;
+	}
 
     public Vector3 normalVector()
     {
