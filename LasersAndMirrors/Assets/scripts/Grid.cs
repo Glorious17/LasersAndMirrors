@@ -221,10 +221,10 @@ public class Grid : MonoBehaviour {
 
 	void LaserStartPos() //Zufällige Startposition des Lasers
 	{
-		int rand = Random.Range (0,y);
+		int rand = Random.Range (0,y-1);
 
 		float xpos = 0; //fieldx/2;
-		float ypos = fieldy/2 + fieldy * rand;
+		float ypos = gridY[rand] - fieldy/2;
 
 		Vector3 pos = new Vector3(xpos, ypos, z);
 

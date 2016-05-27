@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DrawLaser : MonoBehaviour
 {
@@ -115,6 +116,10 @@ public class DrawLaser : MonoBehaviour
             dT = newDirection(speed, normal) * scaling; //neue Richtung berechnen und zur Animation skalieren
             //der dT-Vektor ist aber nur eine skalierte Version des Vektors, da dT zur Animation der Strecke dient
         }
+		else if(hit.collider.gameObject.tag == "Wall")
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
         else
         {
             dT = (hit.point - origin) * scaling; //Strecke zwischen dem Ausgangspunkt (origin) und dem kommenden Kollisionspunkt wird berechnet
