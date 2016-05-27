@@ -77,24 +77,28 @@ public class DrawLaser : MonoBehaviour
 
         while (Physics.Raycast(r, out vHit, 40))//in den nächsten 40 Einheiten, wird überprüft, ob eine Kollision stattfindet
         {
-            if (vHit.collider.gameObject.tag == "Mirror")
+            if (vHit.collider.gameObject.tag == "Mirror"
+				|| vHit.collider.gameObject.tag == "Checkpoint")
             {
-                points.Add(vHit);
-                Vector3 revlector = vHit.collider.gameObject.GetComponent<Degree>().normalVector(); //Vektor, an dem der eingehende Vektor reflektiert wird
-                nextVec = newDirection(nextVec, revlector); //neue Richtung des Vektors
-                /*alte Collsionsabfrage mit nur zwei Winkelpositionen
-                if (vHit.collider.gameObject.GetComponent<Degree>().angleUp())
-                    nextVec = new Vector3(10 * nextVec.z, nextVec.y, 10 * nextVec.x);
-                else
-                    nextVec = new Vector3(-10 * nextVec.z, nextVec.y, -10 * nextVec.x);*/
+				if (vHit.collider.gameObject.tag == "Mirror") {
+					points.Add (vHit);
+					Vector3 revlector = vHit.collider.gameObject.GetComponent<Degree> ().normalVector (); //Vektor, an dem der eingehende Vektor reflektiert wird
+					nextVec = newDirection (nextVec, revlector); //neue Richtung des Vektors
+					/*alte Collsionsabfrage mit nur zwei Winkelpositionen
+	                if (vHit.collider.gameObject.GetComponent<Degree>().angleUp())
+	                    nextVec = new Vector3(10 * nextVec.z, nextVec.y, 10 * nextVec.x);
+	                else
+	                    nextVec = new Vector3(-10 * nextVec.z, nextVec.y, -10 * nextVec.x);*/
 
-                r = new Ray(vHit.point, nextVec);
+					//wenn der Laser schon während dem Platzieren der Spiegel gezeichnet werden soll, 
+					//die nächsten beiden Zeilen auskommentieren und weiter unten noch was
 
-                //wenn der Laser schon während dem Platzieren der Spiegel gezeichnet werden soll, 
-                //die nächsten beiden Zeilen auskommentieren und weiter unten noch was
+					//newCount(); //Anzahl der Vertices wird hoch gesetzt
+					//lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet#
+				}
 
-                //newCount(); //Anzahl der Vertices wird hoch gesetzt
-                //lr.SetPosition(vertexCount - 1, vHit.point); //neuer Vertex am Kollisionspunkt (hitpoint) wird vom Linerenderer gezeichnet
+			    r = new Ray(vHit.point, nextVec);
+
             }
             else
             {
@@ -123,10 +127,6 @@ public class DrawLaser : MonoBehaviour
 		else if(hit.collider.gameObject.tag == "Wall")
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
-		else if(hit.collider.gameObject.tag == "Checkpoint")
-		{
-			//do something
 		}
         else
         {

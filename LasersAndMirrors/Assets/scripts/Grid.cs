@@ -1,12 +1,8 @@
-﻿9using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class Grid : MonoBehaviour {
-
-	/* BUGS
-	 * 
-	 * muss auf Touch ausprobiert werden
-	*/
+public class Grid : MonoBehaviour 
+{
 	public GameObject mirror;
 	public GameObject marker;
     public GameObject barrierObject;
@@ -224,7 +220,7 @@ public class Grid : MonoBehaviour {
 		int rand = Random.Range (0,y);
 
 		float xpos = 0; //fieldx/2;
-		float ypos = fieldy/2 + fieldy * rand;
+		float ypos = gridY[rand] - fieldy/2;
 
 		Vector3 pos = new Vector3(xpos, ypos, z);
 
