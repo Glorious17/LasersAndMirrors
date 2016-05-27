@@ -10,6 +10,7 @@ public class Grid : MonoBehaviour {
 	public GameObject mirror;
 	public GameObject marker;
     public GameObject barrierObject;
+    public GameObject checkpointObject;
 
     private int rand;
 
@@ -58,7 +59,8 @@ public class Grid : MonoBehaviour {
 		}
 
 		Marker ();
-        //barrier(); //Macht noch Probleme
+        barrier(); //Macht noch Probleme
+        checkpoint();
 		LaserStartPos ();
 	}
 
@@ -143,6 +145,14 @@ public class Grid : MonoBehaviour {
 		}
 	}
 
+    void checkpoint()
+    {
+        for (int pos = 1; pos < 8; pos+=3)
+        {
+            spawnCheckpoint(pos, Random.Range(0, 5));
+        }
+    }
+
     void barrier() // Durchläuft eine Schleife die wichtig zur Positionsbestimmung für die Hindernisse ist. 
 	//Anschließend werden insgesamt 6 Hindernisse gespawned.
     {
@@ -163,6 +173,12 @@ public class Grid : MonoBehaviour {
         }
     }
 
+    void spawnCheckpoint(int x, int y)
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(gridX[x] - (fieldx / 2), gridY[y] - (fieldy / 2), z));
+        Instantiate(checkpointObject, pos, Quaternion.identity);
+    }
+
 	void spawnBarrier(int x, int y) //Laesst die Hindernisse Spawnen
     {
         Debug.Log("x = " + x + " y = " + z);
@@ -180,7 +196,6 @@ public class Grid : MonoBehaviour {
             {
                 ro[0] = (Random.Range(0, 3) + pos);
                 ro[1] = rand;
-                //((Random.Range(0, 3) + pos), rand);
             }
             else
             {
@@ -188,13 +203,11 @@ public class Grid : MonoBehaviour {
                 {
                     ro[0] = pos;
                     ro[1] = rand;
-                    //spawnBarrier(pos, rand);
                 }
                 else
                 {
                     ro[0] = pos + 2;
                     ro[1] = rand;
-                    //spawnBarrier(pos + 2, rand);
                 }
             }
         }
@@ -202,7 +215,6 @@ public class Grid : MonoBehaviour {
         {
             ro[0] = pos;
             ro[1] = rand;
-            //spawnBarrier(pos, rand);
         }
         return ro;
     }
