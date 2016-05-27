@@ -8,6 +8,10 @@ public class DrawLaser : MonoBehaviour
     int pointCounter = 0;
     Vector3 nextVec;
 
+	/*
+	 * Bugs: Checkpoints verhalten sich wie Hidnernisse
+	 */
+
     public GameObject laser; //später Laserkanone, zur Zeit leeres GameObject. Muss einen Linerenderer besitzen
     private int vertexCount = 2; //für den Linerenderer nötig, gibt an wie viele Punkte(Strecken) der Laser besitzt
     private Vector3 start; //Ausgangspunkt des Lasers, später: Position der Laserkanone
@@ -119,6 +123,10 @@ public class DrawLaser : MonoBehaviour
 		else if(hit.collider.gameObject.tag == "Wall")
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+		else if(hit.collider.gameObject.tag == "Checkpoint")
+		{
+			//do something
 		}
         else
         {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿9using UnityEngine;
 using System.Collections;
 
 public class Grid : MonoBehaviour {
@@ -221,10 +221,10 @@ public class Grid : MonoBehaviour {
 
 	void LaserStartPos() //Zufällige Startposition des Lasers
 	{
-		int rand = Random.Range (0,y-1);
+		int rand = Random.Range (0,y);
 
 		float xpos = 0; //fieldx/2;
-		float ypos = gridY[rand] - fieldy/2;
+		float ypos = fieldy/2 + fieldy * rand;
 
 		Vector3 pos = new Vector3(xpos, ypos, z);
 
