@@ -8,6 +8,8 @@ public class Grid : MonoBehaviour
     public GameObject barrierObject;
     public GameObject checkpointObject;
 
+	public int maxMirror = 5;
+	public int mirrorCount = 0;
     private int rand;
 
     private float z = 5;
@@ -110,14 +112,17 @@ public class Grid : MonoBehaviour
 
 
 		if (besetzt [ypos, xpos] == false) {
-			Debug.Log ("DEPLOY");
-			Vector3 spawnPos = new Vector3 (xpos * fieldx + fieldx / 2, ypos * fieldy + fieldy / 2, z);
-			Vector3 pos = Camera.main.ScreenToWorldPoint (spawnPos);
-			Object newMirror = Instantiate (mirror, pos, Quaternion.Euler (0, 45, 0));
+			if(mirrorCount < maxMirror){
+				mirrorCount++;
+				Debug.Log ("DEPLOY");
+				Vector3 spawnPos = new Vector3 (xpos * fieldx + fieldx / 2, ypos * fieldy + fieldy / 2, z);
+				Vector3 pos = Camera.main.ScreenToWorldPoint (spawnPos);
+				Object newMirror = Instantiate (mirror, pos, Quaternion.Euler (0, 45, 0));
 
-			newMirror.name = "" + ypos + xpos;
+				newMirror.name = "" + ypos + xpos;
 
-			besetzt [ypos, xpos] = true;
+				besetzt [ypos, xpos] = true;
+			}
 		} 
 		else 
 		{
@@ -125,6 +130,7 @@ public class Grid : MonoBehaviour
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
 			if(selectMirror.GetComponent<Degree>().getMirrorRot())
 				selectMirror.transform.Rotate(0, 22.5f, 0);
+		
 		}
 	}
 

@@ -15,8 +15,6 @@ public class LaserScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		animationVelocity = 0.015f; //wenn der Laser schneller animiert werden soll, hier rumschrauben
-		
 		raycasting = true;
 		pointCounter = 0;
 		Vector3 laserPos = transform.position;
