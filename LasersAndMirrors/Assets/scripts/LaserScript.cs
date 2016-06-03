@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LaserScript : MonoBehaviour {
 	
@@ -12,6 +13,8 @@ public class LaserScript : MonoBehaviour {
 	public float animationVelocity; //Geschwindgkeit zur Animation BITTE, später noch private machen
 	private bool raycasting;
 	private int vertexCount = 2;
+
+	private int c_counter = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -38,25 +41,39 @@ public class LaserScript : MonoBehaviour {
 		
 		RaycastHit vHit = new RaycastHit();
 		
-		if (raycasting) {
+		if (raycasting) 
+		{
 			if (Physics.Raycast (r, out vHit, 100)) {//in den nächsten 100 Einheiten, wird überprüft, ob eine Kollision stattfindet
 				speed = speed + dT; //Animationsschritte des Lasers
 				lr.SetPosition (pointCounter + 1, origin + speed); //Zeichnen des Lasers
 				
-				if (vHit.collider.gameObject.tag == "Mirror") {
+				if (vHit.collider.gameObject.tag == "Mirror"
+					|| vHit.collider.gameObject.tag == "Checkpoint") {
 					//wenn die Länge von der zurückgelegten Strecke (speed) größer als die Länge zwischen Ursprung (origin) und Kollisionspunkt ist
 					if (Vector3.Magnitude (speed) >= Vector3.Magnitude (vHit.point - origin)) {
-						vHit.collider.gameObject.GetComponent<Degree>().disableMirrorRot(); //wenn Laser mit Spiegel kollidiert, dann darf Spiegel nicht mehr rotiert werden
-						newCount ();
-						Vector3 revlector = vHit.collider.gameObject.GetComponent<Degree> ().normalVector (); //Vektor, an dem der eingehende Vektor reflektiert wird
-						nextVec = (newDirection (nextVec, revlector)).normalized; //neue Richtung des Vektors
-						origin = vHit.point; //alter Kollisionspunkt wird nun zum neuen Punkt, von dem aus der Laser weitergezeichnet wird
-						vHit.collider.gameObject.GetComponent<Degree> ().disableMirrorRot ();
-						dT = nextVec * animationVelocity; //neue Richtung berechnen und zur Animation skalieren
+
+						if (vHit.collider.gameObject.tag == "Mirror") {
+							vHit.collider.gameObject.GetComponent<Degree> ().disableMirrorRot (); //wenn Laser mit Spiegel kollidiert, dann darf Spiegel nicht mehr rotiert werden
+							newCount ();
+							Vector3 revlector = vHit.collider.gameObject.GetComponent<Degree> ().normalVector (); //Vektor, an dem der eingehende Vektor reflektiert wird
+							nextVec = (newDirection (nextVec, revlector)).normalized; //neue Richtung des Vektors
+							origin = vHit.point; //alter Kollisionspunkt wird nun zum neuen Punkt, von dem aus der Laser weitergezeichnet wird
+							vHit.collider.gameObject.GetComponent<Degree> ().disableMirrorRot ();
+							dT = nextVec * animationVelocity; //neue Richtung berechnen und zur Animation skalieren
+
+							Debug.Log ("Mirror");
+											
+							speed = new Vector3 (0, 0, 0);
+							pointCounter++;
+						}
+						if (vHit.collider.gameObject.tag == "Checkpoint") {
+
+							Debug.Log ("Check");
+							c_counter++;
+							Debug.Log ("Pounts " + c_counter);
+						}
+
 						r = new Ray (vHit.point, nextVec); //neuen Raycast ausrichten
-						
-						speed = new Vector3 (0, 0, 0);
-						pointCounter++;
 					}
 				}
 				else
@@ -66,15 +83,21 @@ public class LaserScript : MonoBehaviour {
 						if(vHit.collider.gameObject.tag == "finalpoint"){
 							Debug.Log ("Sie haben ihr Ziel erreicht!");
 							//do things if you have won
+
+							//Zum Testen
+							SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 						}
 						else{
 							Debug.Log ("Na das geht doch auch besser!");
 							//do things if you are a disgrace to all of your ancestors and your pet
+
+							//Zum Testen
+							SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 						}
 					}
 					dT = (vHit.point - origin).normalized * animationVelocity; //Strecke zwischen dem Ausgangspunkt (origin) und dem kommenden Kollisionspunkt wird berechnet
 				}
-				Debug.Log (Vector3.Magnitude (dT) + " Länge von dem V-Vektor");
+				//Debug.Log (Vector3.Magnitude (dT) + " Länge von dem V-Vektor");
 				
 			}
 		}
