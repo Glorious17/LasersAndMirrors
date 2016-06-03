@@ -150,9 +150,9 @@ public class Grid : MonoBehaviour
 
     void checkpoint()
     {
-        for (int pos = 1; pos < 8; pos+=3)
+        for (int pos = 4; pos < 8; pos+=3)
         {
-            spawnCheckpoint(pos, Random.Range(0, 5));
+            spawnCheckpoint(pos, Random.Range(0, 3)+1);
         }
     }
 
@@ -162,7 +162,7 @@ public class Grid : MonoBehaviour
         int[] position;
         int x;
         int y;
-        for (int pos = 0; pos < 9; pos += 3)
+        for (int pos = 3; pos < 9; pos += 3)
         {
             position = location(pos);
             x = position[0];
