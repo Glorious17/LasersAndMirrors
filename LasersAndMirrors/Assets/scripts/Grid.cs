@@ -30,6 +30,12 @@ public class Grid : MonoBehaviour
 	public GameObject laser;
 	public GameObject lot;
 
+	//Wände
+	public GameObject wOben;
+	public GameObject wUnten;
+	public GameObject wLinks;
+	public GameObject wRechts;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -62,6 +68,7 @@ public class Grid : MonoBehaviour
         checkpoint();
 		LaserStartPos ();
 		LaserEndPos ();
+		Walls ();
 	}
 
 	/*
@@ -241,11 +248,26 @@ public class Grid : MonoBehaviour
 	{
 		int rand = Random.Range (0,y);
 
-		float xpos = gridX[9]; //fieldx/2;
+		float xpos = gridX[x-1]; //fieldx/2;
 		float ypos = gridY[rand] - fieldy/2;
 
 		Vector3 pos = new Vector3(xpos, ypos, z);
 
 		lot.transform.position = Camera.main.ScreenToWorldPoint(pos);
+	}
+
+	void Walls()
+	{
+		Vector3 posr = new Vector3 (gridX[x-1] + 0.5f*fieldx, wRechts.transform.position.y, z);
+		wRechts.transform.position = Camera.main.ScreenToWorldPoint (posr);
+
+		Vector3 posl = new Vector3 (gridX[0] - 1.5f*fieldx, wLinks.transform.position.y, z);
+		wLinks.transform.position = Camera.main.ScreenToWorldPoint (posl);
+
+		Vector3 poso = new Vector3 (wOben.transform.position.x, gridY[y-1] + 0.5f*fieldy, z);
+		wOben.transform.position = Camera.main.ScreenToWorldPoint (poso);
+
+		Vector3 posu = new Vector3 (wUnten.transform.position.x, gridY[0] - 1.5f*fieldy, z);
+		wUnten.transform.position = Camera.main.ScreenToWorldPoint (posu);
 	}
 }
