@@ -46,9 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\scripts\Arenawall.cs" />
-     <Compile Include="Assets\scripts\ButtonStart.cs" />
      <Compile Include="Assets\scripts\Degree.cs" />
-     <Compile Include="Assets\scripts\DrawLaser.cs" />
      <Compile Include="Assets\scripts\Grid.cs" />
      <Compile Include="Assets\scripts\LaserScript.cs" />
      <Compile Include="Assets\scripts\MirrorCountGUI.cs" />

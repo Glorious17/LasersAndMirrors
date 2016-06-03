@@ -26,8 +26,9 @@ public class Grid : MonoBehaviour
 
 	private bool [,] besetzt;
 
-	private Vector3 laserStartPos;
+	//private Vector3 laserStartPos;
 	public GameObject laser;
+	public GameObject lot;
 
 	// Use this for initialization
 	void Start () 
@@ -60,6 +61,7 @@ public class Grid : MonoBehaviour
         barrier(); //Macht noch Probleme
         checkpoint();
 		LaserStartPos ();
+		LaserEndPos ();
 	}
 
 	/*
@@ -233,5 +235,17 @@ public class Grid : MonoBehaviour
 		Vector3 pos = new Vector3(xpos, ypos, z);
 
 		laser.transform.position = Camera.main.ScreenToWorldPoint(pos);
+	}
+
+	void LaserEndPos()
+	{
+		int rand = Random.Range (0,y);
+
+		float xpos = gridX[9]; //fieldx/2;
+		float ypos = gridY[rand] - fieldy/2;
+
+		Vector3 pos = new Vector3(xpos, ypos, z);
+
+		lot.transform.position = Camera.main.ScreenToWorldPoint(pos);
 	}
 }
