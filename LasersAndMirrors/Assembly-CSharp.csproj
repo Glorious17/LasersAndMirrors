@@ -48,6 +48,7 @@
      <Compile Include="Assets\scripts\Degree.cs" />
      <Compile Include="Assets\scripts\Grid.cs" />
      <Compile Include="Assets\scripts\LaserScript.cs" />
+     <Compile Include="Assets\scripts\LaserStart.cs" />
      <Compile Include="Assets\scripts\LockRotation.cs" />
      <Compile Include="Assets\scripts\MirrorCountGUI.cs" />
  <Reference Include="UnityEngine.UI">

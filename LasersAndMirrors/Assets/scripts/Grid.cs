@@ -248,7 +248,7 @@ public class Grid : MonoBehaviour
 	{
 		int rand = Random.Range (0,y);
 
-		float xpos = gridX[x-1]; //fieldx/2;
+		float xpos = gridX[x-1] - fieldx/2; //fieldx/2;
 		float ypos = gridY[rand] - fieldy/2;
 
 		Vector3 pos = new Vector3(xpos, ypos, z);
