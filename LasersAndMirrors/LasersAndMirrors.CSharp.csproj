@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\GUI_CarouselMenu.cs" />
+    <Compile Include="Assets\scripts\IdleFloat.cs" />
     <Compile Include="Assets\scripts\Menu_Script.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\Degree.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\Grid.cs" />
