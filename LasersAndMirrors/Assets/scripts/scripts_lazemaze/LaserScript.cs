@@ -10,14 +10,24 @@ public class LaserScript : MonoBehaviour {
 	private Vector3 origin, dT, nextVec, speed = new Vector3(0, 0, 0f); //Animationsvektoren
 	Ray r;
 	int pointCounter;
+
 	public float animationVelocity; //Geschwindgkeit zur Animation BITTE, später noch private machen
 	private bool raycasting;
 	private int vertexCount = 2;
 
-	private int c_counter = 0;
+	public int c_counter;
+
+	public string endgame;
 	
 	// Use this for initialization
 	void Start () {
+
+		c_counter = PlayerPrefs.GetInt("3_points");
+
+		//Wird schneller je mehr Punkte man besitzt
+		float speedChange = 0.01f;
+		animationVelocity += speedChange * c_counter;
+
 		raycasting = true;
 		pointCounter = 0;
 		Vector3 laserPos = transform.position;
@@ -70,6 +80,7 @@ public class LaserScript : MonoBehaviour {
 
 							Debug.Log ("Check");
 							c_counter++;
+							PlayerPrefs.SetInt ("3_points", c_counter);
 							Debug.Log ("Pounts " + c_counter);
 						}
 
@@ -84,7 +95,7 @@ public class LaserScript : MonoBehaviour {
 							Debug.Log ("Sie haben ihr Ziel erreicht!");
 							//do things if you have won
 
-							//Zum Testen
+							//Resette Level
 							SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 						}
 						else{
@@ -92,7 +103,7 @@ public class LaserScript : MonoBehaviour {
 							//do things if you are a disgrace to all of your ancestors and your pet
 
 							//Zum Testen
-							SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+							SceneManager.LoadScene(endgame);
 						}
 					}
 					dT = (vHit.point - origin).normalized * animationVelocity; //Strecke zwischen dem Ausgangspunkt (origin) und dem kommenden Kollisionspunkt wird berechnet
