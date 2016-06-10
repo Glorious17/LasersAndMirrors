@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class Menu_Script : MonoBehaviour {
 
-
-    public int loadedScene = 0;
+    public string name;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +20,8 @@ public class Menu_Script : MonoBehaviour {
             if (clickedGmObj != null && clickedGmObj.CompareTag("Button"))
             {
                 Debug.Log("Spiel wird gestartet!");
+                SceneManager.LoadScene(name);
+
                 //Jeweilige Szene laden
                 //entweder über den Applicationamager oder über SceneManager (?)
             }
