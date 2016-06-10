@@ -24,7 +24,7 @@ public class GUI_CarouselMenu : MonoBehaviour {
                 if (!rotate)
                 {
                     rotate = true;
-                    deg = 2.0f;
+                    deg = -2.0f;
                 }
             }
             else
@@ -32,7 +32,7 @@ public class GUI_CarouselMenu : MonoBehaviour {
                 if (!rotate)
                 {
                     rotate = true;
-                    deg = -2.0f;
+                    deg = 2.0f;
                 }
             }
         }
