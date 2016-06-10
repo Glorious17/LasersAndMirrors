@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/lazemaze_game.unity
+- path: Assets/carousel_menu.unity
   isLoaded: 1
   isActive: 1
