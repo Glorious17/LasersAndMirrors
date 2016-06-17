@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Menu_Script : MonoBehaviour {
 
-    public string scenename;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,8 +18,26 @@ public class Menu_Script : MonoBehaviour {
             clickedGmObj = GetClickedGameObject();
             if (clickedGmObj != null && clickedGmObj.CompareTag("Button"))
             {
+                switch (clickedGmObj.name)
+                {
+                    case "goodbad":
+                        SceneManager.LoadScene("lazemaze_game");
+                        break;
+
+                    case "kfs":
+                        SceneManager.LoadScene("kneadforspeed_game");
+                        break;
+
+                    case "lazemaze":
+                        SceneManager.LoadScene("lazemaze_game");
+                        break;
+
+                    case "credits":
+                        SceneManager.LoadScene("lazemaze_game");
+                        break;
+                }
                 Debug.Log("Spiel wird gestartet!");
-                SceneManager.LoadScene(scenename);
+                
             }
         }
     }
