@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/carousel_menu.unity
+- path: Assets/kneadforspeed_end.unity
   isLoaded: 1
   isActive: 1

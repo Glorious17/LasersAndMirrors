@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class EndSceneGUI : MonoBehaviour {
 
-	public GUIStyle button = new GUIStyle();
-	private GUIStyle schrift = new GUIStyle();
+	public GUIStyle neustart = new GUIStyle();
+	public GUIStyle zurueck = new GUIStyle();
+	private GUIStyle schriftKlein = new GUIStyle();
+	private GUIStyle schriftGross = new GUIStyle();
 	private float screenWidth = Screen.width;
 	private float screenHeight = Screen.height;
 
     private List<int> wire = new List<int>();
 
-    public GameObject wire_thin, wire_medium, wire_thick, wire_fat, invisible, d_zu_m, d_zu_di, m_zu_d, m_zu_di, di_zu_d, di_zu_m;
+    public GameObject wire_thin, wire_medium, wire_thick, invisible, d_zu_m, d_zu_di, m_zu_d, m_zu_di, di_zu_d, di_zu_m;
 
     // Use this for initialization
     void Start () {
@@ -23,16 +25,33 @@ public class EndSceneGUI : MonoBehaviour {
 
 
 	void OnGUI() {
-		schrift.fontSize = (int)screenWidth / 35;
-		schrift.normal.textColor = Color.black;
-		schrift.fontStyle = FontStyle.Bold;
-		button.fixedWidth = screenWidth / 6;
-		button.fixedHeight = screenHeight / 6;
-		button.fontSize = (int)screenWidth / 30;
-		Vector2 contentOffset = button.contentOffset;
-		contentOffset.y = button.fixedHeight/3.3333f;
-		button.contentOffset = contentOffset;
-		//int buttonWidth = 200, buttonHeight = 100;
+		schriftKlein.fontSize = (int)screenWidth / 35;
+		schriftGross.fontSize = (int)screenWidth / 25;
+		schriftKlein.alignment = TextAnchor.MiddleCenter;
+		schriftGross.alignment = TextAnchor.MiddleCenter;
+		neustart.fixedWidth = Screen.width/6;
+		neustart.fixedHeight = Screen.height/4;
+		zurueck.fixedWidth = Screen.width/8; //80
+		zurueck.fixedHeight = Screen.height / 12; //39
+
+		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height/5+5, 500, 500));
+		GUILayout.Label ("Score", schriftKlein);
+		GUILayout.Label ("" + GUI_Script.score, schriftGross);
+		GUILayout.EndArea ();
+
+		GUILayout.BeginArea (new Rect(Screen.width/2-neustart.fixedWidth/2, Screen.height - Screen.height/4, 500, 500));
+		if (GUILayout.Button ("", neustart)) {
+			SceneManager.LoadScene("kneadforspeed game");
+		}
+		GUILayout.EndArea ();
+
+		GUILayout.BeginArea (new Rect(10, Screen.height-40, 200,200));
+		if(GUILayout.Button("", zurueck)){
+			SceneManager.LoadScene("carousel_menu");
+		}
+		GUILayout.EndArea ();
+
+		/*//int buttonWidth = 200, buttonHeight = 100;
 		GUILayout.BeginArea (new Rect (Screen.width/2- button.fixedWidth/2, Screen.height /4,Screen.width/2 ,Screen.height/2 ));
 		
 		if (GUILayout.Button("Menü", button))
@@ -41,7 +60,7 @@ public class EndSceneGUI : MonoBehaviour {
 		}
 		GUILayout.Label ("", schrift);
 		GUILayout.Label ("Score: " + GUI_Script.score, schrift);
-		GUILayout.EndArea ();
+		GUILayout.EndArea ();*/
 	}
 
     public void plotWire()
