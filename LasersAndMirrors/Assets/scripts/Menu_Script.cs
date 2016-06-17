@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu_Script : MonoBehaviour {
 
-    public string name;
+    public string scenename;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,10 +20,7 @@ public class Menu_Script : MonoBehaviour {
             if (clickedGmObj != null && clickedGmObj.CompareTag("Button"))
             {
                 Debug.Log("Spiel wird gestartet!");
-                SceneManager.LoadScene(name);
-
-                //Jeweilige Szene laden
-                //entweder über den Applicationamager oder über SceneManager (?)
+                SceneManager.LoadScene(scenename);
             }
         }
     }

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9a73d13583691d74da201dfb0b630260
+timeCreated: 1466154621
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - wire_thin: {instanceID: 0}
+  - wire_medium: {instanceID: 0}
+  - wire_thick: {instanceID: 0}
+  - wire_fat: {instanceID: 0}
+  - invisible: {instanceID: 0}
+  - d_zu_m: {fileID: 100006, guid: 113732890f06b2b40833a21317446a7a, type: 3}
+  - d_zu_di: {fileID: 100004, guid: b5086e23a49777a47a7942785b3a80a5, type: 3}
+  - m_zu_d: {fileID: 100006, guid: b622f7d02e360c44dbe65947e5db7f2a, type: 3}
+  - m_zu_di: {fileID: 100006, guid: 6d536a8a7a9f39d4199ed9775f95f709, type: 3}
+  - di_zu_d: {fileID: 100004, guid: 3f99e354e7b34ab4c961a004cead2f1d, type: 3}
+  - di_zu_m: {fileID: 100004, guid: ee98b9e1b48c3ed498efe0804a0b510b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
