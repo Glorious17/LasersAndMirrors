@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 9a73d13583691d74da201dfb0b630260
-timeCreated: 1466154621
+timeCreated: 1466169353
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - wire_thin: {instanceID: 0}
-  - wire_medium: {instanceID: 0}
-  - wire_thick: {instanceID: 0}
-  - wire_fat: {instanceID: 0}
+  - wire_medium: {fileID: 100000, guid: 55e20f8183aba6b4595b9e41440e4613, type: 3}
+  - wire_thick: {fileID: 100006, guid: 09d5c6ef7e044f14caf959ec7d02ff2a, type: 3}
+  - wire_fat: {fileID: 100000, guid: 62a2d8756b560e441be1b05f1608d774, type: 3}
   - invisible: {instanceID: 0}
   - d_zu_m: {fileID: 100006, guid: 113732890f06b2b40833a21317446a7a, type: 3}
   - d_zu_di: {fileID: 100004, guid: b5086e23a49777a47a7942785b3a80a5, type: 3}
