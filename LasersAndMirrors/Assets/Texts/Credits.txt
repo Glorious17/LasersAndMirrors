@@ -1,0 +1,43 @@
+Mikrowelten ist im Rahmen eines Hochschulprojekts
+in Zusammenarbeit
+mit dem Sonderforschungsbereich 747 der Uni Bremen entstanden.
+
+Die Teilnehmer des Projekts nach Gruppen und alphabetisch sortiert:
+
+
+Game Design:
+
+Luis Dunkum
+Manuel Gonzales
+Thomas Krieger 
+Felix Köhn
+Yannick Petersen
+
+
+Programmierer:
+
+Jens Altrock
+Leonard Bartling
+Cornelia Bosmann
+Nho Quy Dinh
+Katrin Grunert
+Yannick "King" Wesseloh
+
+
+Asset Design:
+
+Ahmet Arabaci
+Pascal Berlik
+Alpha Fadiga
+Tarek Önal
+Sven Tröger
+
+
+Test & Integration:
+
+Eric Herz
+Chris McFury
+André Salmeri
+
+
+Projektkoordinator: Prof. Dr. Volker Paelke

@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/game_goodcupbadcup/goodbad_game.unity
-=======
-- path: Assets/carousel_menu.unity
->>>>>>> origin/master
+- path: Assets/Credit_Scene.unity
   isLoaded: 1
   isActive: 1
