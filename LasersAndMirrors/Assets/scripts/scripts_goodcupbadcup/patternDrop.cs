@@ -54,6 +54,7 @@ public class patternDrop : MonoBehaviour {
 			roundInSeconds+=1;
 		}
 
+		//if round takes too long(12sec), pattern will be deleted and a new pattern drops
 		if (roundInSeconds >= 12) {
 			GameObject.Find("UltimateCollider").GetComponent<CupCounter>().setCounter(0);
 			deletePattern ();
@@ -68,7 +69,7 @@ public class patternDrop : MonoBehaviour {
 		GUI_ScriptGB.wave++;
 		//time = 0.0f;
 		levelCounter++;
-		if (levelCounter == 4) {
+		if (levelCounter == 4 && level<=maxLevel) {
 			level++; //Difficulty increases with every fourth spawn (max 18)
 			levelCounter = 0;
 		}
@@ -85,10 +86,10 @@ public class patternDrop : MonoBehaviour {
 			//Powerup spawn (randomized, only when time is an even number)
 			if(isFreeSpace()){
 
-				if(!alreadyExists && GUI_ScriptGB.timeAnz > 0 && GUI_ScriptGB.timeAnz%1==0){
+				if(!alreadyExists && GUI_ScriptGB.timeAnz > 0 && GUI_ScriptGB.timeAnz%3==0){
 
 					//PowerUp-Spawn, immer zu Zeitpunkten, die durch einen gewissen Faktor geteilt, den Rest 0 besitzen
-					go = Instantiate(powerUp[(int)Random.Range(0f,powerUp.Length)], new Vector3(xPos, yPos, zPos), Quaternion.identity) as GameObject;
+					go = Instantiate(powerUp[(int)Random.Range(0f,powerUp.Length)], new Vector3(xPos, yPos, zPos), Quaternion.Euler(0,Random.Range(0,359),0)) as GameObject;
 					go.AddComponent<CollisionCounter>();
 					pattern.Add (go); //add instance of GameObject to the List
 					alreadyExists = true;
@@ -98,11 +99,12 @@ public class patternDrop : MonoBehaviour {
 
 			//GoodCup/BadCup spawn
 			if(isFreeSpace()){
-				if(counter < Mathf.Round ((float)level/faktor)){
-					go = Instantiate(badCup, new Vector3(xPos, yPos, zPos), Quaternion.identity) as GameObject;
 
+				if(counter < Random.Range (0,level)){
+					go = Instantiate(badCup, new Vector3(xPos, yPos, zPos), Quaternion.Euler(0,Random.Range(0,359),0)) as GameObject;
+				
 				}else{
-					go = Instantiate(goodCup, new Vector3(xPos, yPos, zPos), Quaternion.identity) as GameObject;
+					go = Instantiate(goodCup, new Vector3(xPos, yPos, zPos), Quaternion.Euler(0,Random.Range(0,359),0)) as GameObject;
 				}
 				pattern.Add(go);
 

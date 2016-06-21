@@ -40,3 +40,5 @@ C:\Users\Ich\Desktop\LasersAndMirrors\LasersAndMirrors\Temp\bin\Debug\UnityEngin
 C:\Users\Ich\Desktop\LasersAndMirrors\LasersAndMirrors\obj\Debug\Assembly-CSharp.dll
 C:\Users\Ich\Desktop\LasersAndMirrors\LasersAndMirrors\obj\Debug\Assembly-CSharp.pdb
 C:\Users\Ich\Desktop\LasersAndMirrors\LasersAndMirrors\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\LasersAndMirrors\LasersAndMirrors\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Desktop\LasersAndMirrors\LasersAndMirrors\obj\Debug\Assembly-CSharp.dll
