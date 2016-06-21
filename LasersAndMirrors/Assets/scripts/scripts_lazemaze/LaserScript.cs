@@ -101,10 +101,8 @@ public class LaserScript : MonoBehaviour {
 						if(vHit.collider.gameObject.tag == "finalpoint"){
                                 //do things if you have won
 
-                                //Resette Level
-                                Debug.Log("WIIIIIIIIIIIIIIIIIN");
-                                    meltingAllowed = true;                                
-							//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                                //Schmelzen des Drahtes, das Level wird geladen, wenn der zuende geschmolzen ist
+                                meltingAllowed = true;                              
 						}
 						else{
 							//do things if you are a disgrace to all of your ancestors and your pet
