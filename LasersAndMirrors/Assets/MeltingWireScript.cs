@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MeltingWireScript : MonoBehaviour {
 
@@ -58,10 +59,15 @@ public class MeltingWireScript : MonoBehaviour {
             stop = true;
         }
 
-        if (!stop)
+        if (!stop) //Switchen zwischen den Farben, solange noch das ENde erreicht wurde
+
         {
-            //Switchen zwischen den Farben
             renderer.material.color = Color.Lerp(colorstart, colorend, lerp);
+        }
+        else
+        {
+            //Ende des Schmelzens und somit wird die aktive Szene neu geladen
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         if (sphere.transform.localScale.x <= sizeOfMeltedStuff && sphere.transform.localScale.y <= sizeOfMeltedStuff && sphere.transform.localScale.z <= sizeOfMeltedStuff)
         {
