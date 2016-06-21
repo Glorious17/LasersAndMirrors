@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GUI_Script : MonoBehaviour {
 
@@ -83,7 +84,7 @@ public class GUI_Script : MonoBehaviour {
 			}
 			GUILayout.Label ("");
 			if(GUILayout.Button("Menü", buttons)){
-				Application.LoadLevel(1);
+                SceneManager.LoadScene(0);
 				Time.timeScale = 1;
 			}
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 /*
  * This script will show the total score of the player and the way he/she reached
@@ -43,12 +44,12 @@ public class End_GUI : MonoBehaviour {
 		//Score usw.
 		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height/5+5, 500, 500));
 		//Die erreichten Werte werden untereinander angezeigt
-		GUILayout.Label ("Wave", fontStyleKlein);
+		GUILayout.Label ("Überlebte Wellen", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.wave, fontStyleGross);
-		GUILayout.Label ("Score", fontStyleKlein);
+		GUILayout.Label ("\nScore", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.score, fontStyleGross);
-		GUILayout.Label("Final Score", fontStyleKlein);
-		GUILayout.Label ("" + score, fontStyleGross);
+		GUILayout.Label("\nFinal Score", fontStyleKlein);
+		GUILayout.Label ("" + score, fontStyleGross + "\n\n");
 
 		/*if (GUILayout.Button("Menü", pauseButton))
         {
@@ -58,9 +59,9 @@ public class End_GUI : MonoBehaviour {
         }*/
 		GUILayout.EndArea ();
 		GUILayout.BeginArea (new Rect(Screen.width/2-neustart.fixedWidth/2, Screen.height - Screen.height/4, 500, 500));
-		if (GUILayout.Button ("", neustart)) {
-			Application.LoadLevel(1);
-			GUI_ScriptGB.timeAnz =0;
+		if (GUILayout.Button ("Nochmal spielen", neustart)) {
+            SceneManager.LoadScene(5);
+            GUI_ScriptGB.timeAnz =0;
 			GUI_ScriptGB.score = 0;
 			score = 0;
 			GUI_ScriptGB.wave = 0;
@@ -68,10 +69,10 @@ public class End_GUI : MonoBehaviour {
 		GUILayout.EndArea ();
 
 		GUILayout.BeginArea (new Rect(10, Screen.height-40, 200,200));
-		if(GUILayout.Button("", zurueck)){
-			Application.LoadLevel (0);
-		}
-		GUILayout.EndArea ();
+		if(GUILayout.Button("Menü", zurueck)){
+            SceneManager.LoadScene(0);
+        }
+        GUILayout.EndArea ();
 	}
 }
 

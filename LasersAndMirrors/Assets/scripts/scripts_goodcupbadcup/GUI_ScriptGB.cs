@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GUI_ScriptGB : MonoBehaviour {
 	
@@ -83,7 +84,7 @@ public class GUI_ScriptGB : MonoBehaviour {
 			//Dies ist de Button, der zurück zum Menü fürht
 			if(GUILayout.Button ("Menü", pauseButton))
 			{
-				Application.LoadLevel(0);
+				SceneManager.LoadScene(0);
 				Time.timeScale = 1;
 			}
 			
@@ -98,10 +99,10 @@ public class GUI_ScriptGB : MonoBehaviour {
 		//Wenn alle Leben weg sind wird der Gema Over Screen geladen
 		if (leben <= 0)
 		{
-			Application.LoadLevel(2);
-		}
-		//Oben Links die anzeige der Werte
-		GUILayout.Label("Score: " + score, fontStyle);
+            SceneManager.LoadScene(6);
+        }
+        //Oben Links die anzeige der Werte
+        GUILayout.Label("Score: " + score, fontStyle);
 		GUILayout.Label ("");
 		GUILayout.Label("Welle: " + wave, fontStyle);
 		GUILayout.EndArea();

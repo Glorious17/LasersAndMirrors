@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class Start_GUI : MonoBehaviour {
+public class End_GUIGB : MonoBehaviour {
 	
 	public bool isPaused;
 	public int leben = 3;
@@ -32,11 +33,11 @@ public class Start_GUI : MonoBehaviour {
 		pauseButton.contentOffset = contentOffset;
 
         GUILayout.BeginArea(new Rect(Screen.width - Screen.width / 2 - pauseButton.fixedWidth / 2, Screen.height - Screen.height / 2 - pauseButton.fixedHeight / 2, pauseButton.fixedWidth, 500));
-        if (GUILayout.Button("Start", pauseButton))
+        if (GUILayout.Button("Erneut spielen", pauseButton))
 		{
-			//Wird ein neues Spiel gestartet werden erst alle Werte zurück gesetzt
-            Application.LoadLevel(1);
-			GUI_ScriptGB.timeAnz =0;
+            //Wird ein neues Spiel gestartet werden erst alle Werte zurück gesetzt
+            SceneManager.LoadScene(5);
+            GUI_ScriptGB.timeAnz =0;
 			GUI_ScriptGB.score = 0;
 			score = 0;
 			GUI_ScriptGB.wave = 0;
@@ -45,7 +46,7 @@ public class Start_GUI : MonoBehaviour {
 		//zurück zum Obermenü aller Spiele
 		if (GUILayout.Button("Hauptmenü", pauseButton))
 		{
-            Debug.Log("NADA!");
+            SceneManager.LoadScene(0);
 		}
 		GUILayout.EndArea ();
 	}
