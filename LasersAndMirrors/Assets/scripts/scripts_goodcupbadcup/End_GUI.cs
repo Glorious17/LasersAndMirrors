@@ -59,7 +59,7 @@ public class End_GUI : MonoBehaviour {
         }*/
 		GUILayout.EndArea ();
 		GUILayout.BeginArea (new Rect(Screen.width/2-neustart.fixedWidth/2, Screen.height - Screen.height/4, 500, 500));
-		if (GUILayout.Button ("Nochmal spielen", neustart)) {
+		if (GUILayout.Button ("", neustart)) {
             SceneManager.LoadScene(5);
             GUI_ScriptGB.timeAnz =0;
 			GUI_ScriptGB.score = 0;
@@ -69,7 +69,7 @@ public class End_GUI : MonoBehaviour {
 		GUILayout.EndArea ();
 
 		GUILayout.BeginArea (new Rect(10, Screen.height-40, 200,200));
-		if(GUILayout.Button("Menü", zurueck)){
+		if(GUILayout.Button("", zurueck)){
             SceneManager.LoadScene(0);
         }
         GUILayout.EndArea ();
