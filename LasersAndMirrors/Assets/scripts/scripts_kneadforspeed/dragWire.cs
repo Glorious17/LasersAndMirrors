@@ -17,7 +17,7 @@ public class dragWire : MonoBehaviour {
 		if (Input.touchCount > 0) {
 			var touch = Input.GetTouch (0);
 			if (touch.phase == TouchPhase.Moved) {
-				startPos = new Vector3 (Mathf.Clamp (touch.position.x / Screen.width * 0.33f, 0, 8), 0, 0);
+				startPos = new Vector3 (Mathf.Clamp (touch.position.x / Screen.width * 0.33f, 0, 8), transform.position.y, transform.position.z);
 
 			}
 
@@ -29,15 +29,15 @@ public class dragWire : MonoBehaviour {
 
 	}
 
-	void OnMouseDown(){
-		screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+	//void OnMouseDown(){
+	//	screenPoint = Camera.main.WorldToScreenPoint (gameObject.transform.position);
+	//	offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 
-	}
+	//}
 
-	void OnMouseDrag(){
-		Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Screen.height/2, screenPoint.z);
-		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
-		transform.position = cursorPosition;
-	}
+	//void OnMouseDrag(){
+	//	Vector3 cursorPoint = new Vector3 (Input.mousePosition.x, Screen.height/2, screenPoint.z);
+	//	Vector3 cursorPosition = Camera.main.ScreenToWorldPoint (cursorPoint) + offset;
+	//	transform.position = cursorPosition;
+	//}
 }

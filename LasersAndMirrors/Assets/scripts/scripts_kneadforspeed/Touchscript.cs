@@ -169,7 +169,7 @@ public class Touchscript : MonoBehaviour
 
 
         //Mouse Positioning
-        if (Input.GetMouseButtonDown(0))
+		/*if (Input.GetMouseButtonDown(0))
         {
 			Debug.Log (Input.mousePosition);
             if (Input.mousePosition.y <= Screen.height / 2)
@@ -223,7 +223,9 @@ public class Touchscript : MonoBehaviour
                 signals.Remove(signals[0]); //removing Object from List
                 Destroy(go); //deleting Object from scene
             }
-        }
+        }*/
+
+
 
 
         //Touch Positioning

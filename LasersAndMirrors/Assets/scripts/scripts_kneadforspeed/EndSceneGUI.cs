@@ -72,7 +72,7 @@ public class EndSceneGUI : MonoBehaviour {
             switch (part) //reading out value of wire evaluation (1 = super, 2= good, 3 = meh, 4 = baaad)
             {
 				case 1:
-					GameObject spawnThin = (GameObject)Instantiate (wire_thin, wirePos, Quaternion.Euler (0, 0, -90));
+					GameObject spawnThin = (GameObject)Instantiate (wire_thin, wirePos, Quaternion.Euler (0, -90, 0));
 					spawnThin.transform.parent = invisible.transform;    
 					break;
 			

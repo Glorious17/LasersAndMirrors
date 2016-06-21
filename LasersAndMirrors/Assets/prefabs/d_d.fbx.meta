@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 09d5c6ef7e044f14caf959ec7d02ff2a
-timeCreated: 1466156356
+timeCreated: 1466501136
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -18,7 +18,9 @@ ModelImporter:
     400008: Lamp
     400010: Lamp.001
     2300000: Cylinder
+    2300002: //RootNode
     3300000: Cylinder
+    3300002: //RootNode
     4300000: Cylinder
   materials:
     importMaterials: 1
@@ -44,7 +46,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.25
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
