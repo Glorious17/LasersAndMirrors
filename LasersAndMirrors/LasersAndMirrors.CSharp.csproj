@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MeltingWireScript.cs" />
+    <Compile Include="Assets\SphereAnimation.cs" />
     <Compile Include="Assets\scripts\GUI_CarouselMenu.cs" />
     <Compile Include="Assets\scripts\IdleFloat.cs" />
     <Compile Include="Assets\scripts\Menu_Script.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Assets\scripts\scripts_kneadforspeed\dragWire.cs" />
     <Compile Include="Assets\scripts\scripts_kneadforspeed\oldPosition.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\Degree.cs" />
+    <Compile Include="Assets\scripts\scripts_lazemaze\End_Gui_Lazemaze.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\Grid.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\LaserScript.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\LaserStart.cs" />

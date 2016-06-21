@@ -18,6 +18,8 @@ public class LaserScript : MonoBehaviour {
 	public int c_counter;
 
 	public string endgame;
+
+    private bool meltingAllowed = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -50,8 +52,13 @@ public class LaserScript : MonoBehaviour {
 	void FixedUpdate () {
 		
 		RaycastHit vHit = new RaycastHit();
-		
-		if (raycasting) 
+
+        if(meltingAllowed)
+            GameObject.Find("Draht").GetComponent<MeltingWireScript>().melting();
+
+
+
+        if (raycasting) 
 		{
 			if (Physics.Raycast (r, out vHit, 100)) {//in den nächsten 100 Einheiten, wird überprüft, ob eine Kollision stattfindet
 				speed = speed + dT; //Animationsschritte des Lasers
@@ -92,14 +99,14 @@ public class LaserScript : MonoBehaviour {
 					if (Vector3.Magnitude (speed) >= Vector3.Magnitude (vHit.point - origin)){
 						raycasting = false;
 						if(vHit.collider.gameObject.tag == "finalpoint"){
-							Debug.Log ("Sie haben ihr Ziel erreicht!");
-							//do things if you have won
+                                //do things if you have won
 
-							//Resette Level
-							SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                                //Resette Level
+                                Debug.Log("WIIIIIIIIIIIIIIIIIN");
+                                    meltingAllowed = true;                                
+							//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 						}
 						else{
-							Debug.Log ("Na das geht doch auch besser!");
 							//do things if you are a disgrace to all of your ancestors and your pet
 
 							//Zum Testen
