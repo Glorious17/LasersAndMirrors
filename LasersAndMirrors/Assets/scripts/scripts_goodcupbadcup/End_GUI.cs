@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
  */
 
 public class End_GUI : MonoBehaviour {
-	private int score;
+	private int finalscore;
 
 	private GUIStyle fontStyleKlein = new GUIStyle();
 	private GUIStyle fontStyleGross = new GUIStyle();
@@ -28,7 +28,7 @@ public class End_GUI : MonoBehaviour {
 
 
 	void OnGUI() {
-		score = GUI_ScriptGB.score * GUI_ScriptGB.wave;
+		finalscore = GUI_ScriptGB.score * GUI_ScriptGB.wave;
 		fontStyleGross.font = (Font)Resources.Load("Fonts/Unique");
 		fontStyleKlein.font = (Font)Resources.Load("Fonts/Unique");
 		fontStyleKlein.fontSize = (int)screenWidth / 35;
@@ -45,14 +45,14 @@ public class End_GUI : MonoBehaviour {
 
 
 		//Score usw.
-		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height/5+5, 500, 500));
+		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height/5+5, 500, Screen.height));
 		//Die erreichten Werte werden untereinander angezeigt
 		GUILayout.Label ("Überlebte Wellen", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.wave, fontStyleGross);
 		GUILayout.Label ("Score", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.score, fontStyleGross);
 		GUILayout.Label("Final Score", fontStyleKlein);
-		GUILayout.Label ("" + GUI_ScriptGB.score, fontStyleGross);
+		GUILayout.Label ("" + finalscore, fontStyleGross);
 
 		/*if (GUILayout.Button("Menü", pauseButton))
         {
@@ -66,12 +66,12 @@ public class End_GUI : MonoBehaviour {
             SceneManager.LoadScene(5);
             GUI_ScriptGB.timeAnz =0;
 			GUI_ScriptGB.score = 0;
-			score = 0;
+			finalscore = 0;
 			GUI_ScriptGB.wave = 0;
 		}
 		GUILayout.EndArea ();
 
-		GUILayout.BeginArea (new Rect(10, Screen.height-Screen.width/15, 2000,2000));
+		GUILayout.BeginArea (new Rect(10, Screen.height-Screen.height/10, zurueck.fixedWidth, zurueck.fixedHeight));
 		if(GUILayout.Button("", zurueck)){
             SceneManager.LoadScene(0);
         }

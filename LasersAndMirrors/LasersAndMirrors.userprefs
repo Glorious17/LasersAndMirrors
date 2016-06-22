@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\scripts_goodcupbadcup\End_GUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\scripts_goodcupbadcup\GUI_ScriptGB.cs">
     <Files>
-      <File FileName="Assets\scripts\scripts_goodcupbadcup\End_GUI.cs" Line="74" Column="66" />
+      <File FileName="Assets\scripts\scripts_goodcupbadcup\End_GUI.cs" Line="48" Column="92" />
       <File FileName="Assets\scripts\Credit_Script.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\scripts_kneadforspeed\diagonalMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\scripts_goodcupbadcup\patternDrop.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\scripts_goodcupbadcup\TouchScript.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\scripts_goodcupbadcup\InvertScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\scripts_goodcupbadcup\GUI_ScriptGB.cs" Line="56" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

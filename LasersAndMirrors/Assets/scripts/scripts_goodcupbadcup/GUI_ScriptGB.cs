@@ -14,7 +14,7 @@ public class GUI_ScriptGB : MonoBehaviour {
 	private float screenWidth = Screen.width;
 	private float screenHeight = Screen.height;
 
-	public Texture liveDown;
+	public Texture lifeDown;
 	public int lifeCounter;
 	private float heightTimer = 0;
 	
@@ -52,7 +52,8 @@ public class GUI_ScriptGB : MonoBehaviour {
 		Vector2 contentOffset = pauseButton.contentOffset;
 		contentOffset.y = pauseButton.fixedHeight/3.3333f;
 		pauseButton.contentOffset = contentOffset;
-
+		lifeDown.height = (int)Screen.height / 6;
+		lifeDown.width = (int)Screen.width / 6;
 		
 		//Pausebutton Oben Rechts
 		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/6, 5, pauseButton.fixedWidth, pauseButton.fixedHeight));
@@ -109,7 +110,7 @@ public class GUI_ScriptGB : MonoBehaviour {
 
 		if (lifeCounter > timeAnz) {
 			GUILayout.BeginArea (new Rect (Screen.width / 3, Screen.height / 3+heightTimer, 300, 300));
-			GUILayout.Label (liveDown);
+			GUILayout.Label (lifeDown);
 			GUILayout.EndArea ();
 			heightTimer -= 0.5f;
 		} else
