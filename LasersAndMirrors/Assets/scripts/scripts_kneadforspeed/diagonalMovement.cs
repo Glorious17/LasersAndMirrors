@@ -26,6 +26,9 @@ public class diagonalMovement : MonoBehaviour
     private float fastesSpeed = 0.6f; 		//Umso kleiner diese Zahl ist, umso schneller ist die maximale Geschwindigkeit der Spawns
 	//private float faktor = 500f;
 
+	private float timer = 0;
+	private int actualTime = 0;
+
 	GameObject s;
 
 
@@ -36,28 +39,35 @@ public class diagonalMovement : MonoBehaviour
 
     void Update()
     {
+		
 		if (GameObject.Find ("Main Camera").GetComponent<GUI_Script> ().isPaused == false){
+			timer = timer + Time.deltaTime;
+
+			if (timer >= 1.0f) {
+				timer = 0;
+				actualTime+=1;
+			}
         if (!specialPattern)
         {
-            if (Time.realtimeSinceStartup >= spawntime)
+            if (actualTime >= spawntime)
             {
                 if (randomSpawn < zweiSpawnHaeufigkeit)
                 {
                     spawn();
                     zweiterSpawn = true;
                     spawn();
-                    spawntime = Time.realtimeSinceStartup + spawnSpeed;
+                    spawntime = actualTime + spawnSpeed;
                     zweiterSpawn = false;
                 }
                 else {
                     spawn();
-                    Debug.Log(Time.realtimeSinceStartup);
-                    spawntime = Time.realtimeSinceStartup + spawnSpeed;
+                    Debug.Log(actualTime);
+                    spawntime = actualTime + spawnSpeed;
                 }
                 if (Random.Range(0, 100) % 20 == 0)
                 {
                     specialPattern = true;
-                    patternTime = Time.realtimeSinceStartup + spawnSpeed;
+                    patternTime = actualTime + spawnSpeed;
                 }
             }
             randomizer = Random.Range(0, 1001);
@@ -67,11 +77,11 @@ public class diagonalMovement : MonoBehaviour
             if (patternCounter == 0)
                 randomPattern = Random.Range(0, 3);
 
-            if (Time.realtimeSinceStartup >= patternTime)
+            if (actualTime >= patternTime)
             {
                 pattern();
-                patternTime = Time.realtimeSinceStartup + spawnSpeed;
-                spawntime = Time.realtimeSinceStartup + spawnSpeed;
+                patternTime = actualTime + spawnSpeed;
+                spawntime = actualTime + spawnSpeed;
             }
             
         }
