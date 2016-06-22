@@ -9,6 +9,6 @@ public class ResetPoints : MonoBehaviour {
 	void Start () {
 		PlayerPrefs.SetInt ("3_points", 0);
 
-		SceneManager.LoadScene(menu);
+		//SceneManager.LoadScene(menu);
 	}
 }

@@ -27,8 +27,9 @@ public class LaserScript : MonoBehaviour {
 		c_counter = PlayerPrefs.GetInt("3_points");
 
 		//Wird schneller je mehr Punkte man besitzt
-		float speedChange = 0.01f;
+		float speedChange = 0.005f; //Erhöhunsfaktor für jeden getroffen Checkpoint
 		animationVelocity += speedChange * c_counter;
+        //eine Obergrenze wäre noch sonnvoll einzufügen, müsste gut gebalanced sein
 
 		raycasting = true;
 		pointCounter = 0;
@@ -105,10 +106,10 @@ public class LaserScript : MonoBehaviour {
                                 meltingAllowed = true;                              
 						}
 						else{
-							//do things if you are a disgrace to all of your ancestors and your pet
+                                //do things if you are a disgrace to all of your ancestors and your pet
 
-							//Zum Testen
-							SceneManager.LoadScene(endgame);
+                                //Laden der EndgameScene des Spiels
+                                SceneManager.LoadScene(endgame);
 						}
 					}
 					dT = (vHit.point - origin).normalized * animationVelocity; //Strecke zwischen dem Ausgangspunkt (origin) und dem kommenden Kollisionspunkt wird berechnet
