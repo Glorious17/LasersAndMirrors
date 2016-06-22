@@ -15,7 +15,7 @@ public class Credit_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		path = "Assets/Texts/Credits.txt";
+		path = "Assets/Resource/Credits.txt";
 		reader = new StreamReader (path);
 		string temp;
 		while((temp = reader.ReadLine()) != null){
@@ -36,7 +36,7 @@ public class Credit_Script : MonoBehaviour {
 		back.fixedWidth = Screen.width/8; //80
 		back.fixedHeight = Screen.height / 12; //39
 
-		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height-scroll, 500, 500));
+		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height-scroll, 500, 1500));
 		for (int i = 0; i < 43; i++) {
 			string line = credits [i];
 			GUILayout.Label (line, font);

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/carousel_menu.unity
+- path: Assets/Credit_Scene.unity
   isLoaded: 1
   isActive: 1
