@@ -43,7 +43,9 @@ public class Credit_Script : MonoBehaviour {
 		}
 		GUILayout.EndArea ();
 
-		scroll += 0.3f;
+		scroll += 1.3f;
+		if (scroll >= 1050)
+			scroll = 0;
 
 		GUILayout.BeginArea (new Rect(10, Screen.height-40, 200,200));
 		if(GUILayout.Button("", back)){
