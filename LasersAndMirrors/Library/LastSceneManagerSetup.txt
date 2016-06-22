@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/game_kneadforspeed/kneadforspeed_game.unity
+=======
+- path: Assets/carousel_menu.unity
+>>>>>>> origin/master
   isLoaded: 1
   isActive: 1
