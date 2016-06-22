@@ -27,6 +27,8 @@ public class EndSceneGUI : MonoBehaviour {
 	void OnGUI() {
 		schriftKlein.fontSize = (int)screenWidth / 35;
 		schriftGross.fontSize = (int)screenWidth / 25;
+		schriftGross.font = (Font)Resources.Load("Fonts/Unique");
+		schriftKlein.font = (Font)Resources.Load("Fonts/Unique");
 		schriftKlein.alignment = TextAnchor.MiddleCenter;
 		schriftGross.alignment = TextAnchor.MiddleCenter;
 		neustart.fixedWidth = Screen.width/6;

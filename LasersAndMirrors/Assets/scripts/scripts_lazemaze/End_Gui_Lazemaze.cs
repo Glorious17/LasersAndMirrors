@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class End_Gui_Lazemaze : MonoBehaviour {
 
-	public GUIStyle fontSmall = new GUIStyle ();
-	public GUIStyle fontBig = new GUIStyle ();
+	private GUIStyle fontSmall = new GUIStyle ();
+	private GUIStyle fontBig = new GUIStyle ();
 	public GUIStyle backButton = new GUIStyle();
 	public GUIStyle restartButton = new GUIStyle ();
 
@@ -25,6 +25,8 @@ public class End_Gui_Lazemaze : MonoBehaviour {
 		int score = PlayerPrefs.GetInt("3_points");;
 		fontSmall.fontSize = (int)Screen.width / 30;
 		fontBig.fontSize = (int)Screen.width / 20;
+		fontBig.font = (Font)Resources.Load("Fonts/Unique");
+		fontSmall.font = (Font)Resources.Load("Fonts/Unique");
 		fontSmall.alignment = TextAnchor.MiddleCenter;
 		fontBig.alignment = TextAnchor.MiddleCenter;
 

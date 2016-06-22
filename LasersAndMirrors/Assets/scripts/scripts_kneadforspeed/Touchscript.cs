@@ -36,7 +36,7 @@ public class Touchscript : MonoBehaviour
 
     private static List<int> feedback = new List<int>(); //statisch, da das Skript auch in der Main Camera von der EndScene geladen wird und somit diese Liste erhalten bleibt
 
-    public Camera cam;
+   // public Camera cam;
 
     private List<GameObject> signals; //storage for signals on the field
 
@@ -293,7 +293,7 @@ public class Touchscript : MonoBehaviour
 			lightOn ();
 		}
 
-        lightOn(); //Nur für die Maus
+        //lightOn(); //Nur für die Maus
     }
 
 

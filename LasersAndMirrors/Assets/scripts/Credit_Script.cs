@@ -15,7 +15,7 @@ public class Credit_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		path = "Assets/Resource/Credits.txt";
+		path = "Assets/Resources/Credits.txt";
 		reader = new StreamReader (path);
 		string temp;
 		while((temp = reader.ReadLine()) != null){

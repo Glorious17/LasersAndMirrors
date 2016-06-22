@@ -29,10 +29,13 @@ public class End_GUI : MonoBehaviour {
 
 	void OnGUI() {
 		score = GUI_ScriptGB.score * GUI_ScriptGB.wave;
+		fontStyleGross.font = (Font)Resources.Load("Fonts/Unique");
+		fontStyleKlein.font = (Font)Resources.Load("Fonts/Unique");
 		fontStyleKlein.fontSize = (int)screenWidth / 35;
 		fontStyleGross.fontSize = (int)screenWidth / 25;
 		fontStyleKlein.alignment = TextAnchor.MiddleCenter;
 		fontStyleGross.alignment = TextAnchor.MiddleCenter;
+		fontStyleGross.padding.bottom = 6;
 
 		neustart.fixedWidth = Screen.width/6;
 		neustart.fixedHeight = Screen.height/4;
@@ -46,10 +49,10 @@ public class End_GUI : MonoBehaviour {
 		//Die erreichten Werte werden untereinander angezeigt
 		GUILayout.Label ("Überlebte Wellen", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.wave, fontStyleGross);
-		GUILayout.Label ("\nScore", fontStyleKlein);
+		GUILayout.Label ("Score", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.score, fontStyleGross);
-		GUILayout.Label("\nFinal Score", fontStyleKlein);
-		GUILayout.Label ("" + score, fontStyleGross + "\n\n");
+		GUILayout.Label("Final Score", fontStyleKlein);
+		GUILayout.Label ("" + GUI_ScriptGB.score, fontStyleGross);
 
 		/*if (GUILayout.Button("Menü", pauseButton))
         {
