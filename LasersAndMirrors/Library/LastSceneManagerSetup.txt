@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Credit_Scene.unity
+- path: Assets/game_goodcupbadcup/goodbad_game.unity
   isLoaded: 1
   isActive: 1

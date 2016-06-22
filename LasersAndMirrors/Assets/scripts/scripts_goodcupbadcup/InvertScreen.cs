@@ -54,8 +54,6 @@ public class InvertScreen : MonoBehaviour
 				} else {
 					descam = falseposCam;
 				}
-				//rotate camera 180° for same drag-direction as before
-				refCam.transform.Rotate (0, 180, 0, Space.World);
 			}
 		}
 	}

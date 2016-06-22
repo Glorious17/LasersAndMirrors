@@ -16,9 +16,14 @@ public class Credit_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		path = Application.dataPath+"/Resources/Credits.txt";
+		path = Application.dataPath+"/Resources/Credits";
 		reader = new StreamReader (path);
 		string temp;
+
+//		string f = Resources.Load ("msgDB").ToString(); // from Resources/msgDB.txt
+//		string[] msgDB = f.Replace("\r\n","\n").Replace("\r","\n").Split("\n"[0]);
+
+
 		while((temp = reader.ReadLine()) != null){
 			credits.Add(temp);
 		} 

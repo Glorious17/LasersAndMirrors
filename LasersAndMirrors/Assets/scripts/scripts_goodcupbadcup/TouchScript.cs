@@ -6,7 +6,7 @@ public class TouchScript : MonoBehaviour {
 	private Rigidbody rb;
 	private float z = 12f;
 	private static Camera main;
-	public int speed = 50;
+	public int speed = 2;
     public AudioSource soundsCup;
     public AudioClip pickupSound;
 
