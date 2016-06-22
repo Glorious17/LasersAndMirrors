@@ -71,7 +71,7 @@ public class End_GUI : MonoBehaviour {
 		}
 		GUILayout.EndArea ();
 
-		GUILayout.BeginArea (new Rect(10, Screen.height-40, 200,200));
+		GUILayout.BeginArea (new Rect(10, Screen.height-Screen.width/15, 2000,2000));
 		if(GUILayout.Button("", zurueck)){
             SceneManager.LoadScene(0);
         }
