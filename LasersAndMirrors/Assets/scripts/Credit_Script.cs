@@ -43,7 +43,7 @@ public class Credit_Script : MonoBehaviour {
 		}
 		GUILayout.EndArea ();
 
-		scroll += 1.3f;
+		scroll += 0.3f;
 		if (scroll >= 1050)
 			scroll = 0;
 
