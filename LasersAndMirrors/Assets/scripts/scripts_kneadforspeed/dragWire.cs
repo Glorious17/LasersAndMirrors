@@ -17,7 +17,7 @@ public class dragWire : MonoBehaviour {
 		if (Input.touchCount > 0) {
 			var touch = Input.GetTouch (0);
 			if (touch.phase == TouchPhase.Moved) {
-				startPos = new Vector3 (Mathf.Clamp (touch.position.x / Screen.width * 0.33f, 0, 8), transform.position.y, transform.position.z);
+				startPos = new Vector3 (Mathf.Clamp (touch.position.x / Screen.width * 0.55f, 0, 8), 0, transform.position.z);
 
 			}
 

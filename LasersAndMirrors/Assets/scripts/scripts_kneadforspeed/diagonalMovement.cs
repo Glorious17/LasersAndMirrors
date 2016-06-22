@@ -23,7 +23,7 @@ public class diagonalMovement : MonoBehaviour
     private float spawntime = 3f;
     private float spawnSpeed = 5f;
     private float fasterSpawnTime = 0;
-    private float fastesSpeed = 0.6f; 		//Umso kleiner diese Zahl ist, umso schneller ist die maximale Geschwindigkeit der Spawns
+    private float fastesSpeed = 0.1f; 		//Umso kleiner diese Zahl ist, umso schneller ist die maximale Geschwindigkeit der Spawns
 	//private float faktor = 500f;
 
 	private float timer = 0;
@@ -86,7 +86,7 @@ public class diagonalMovement : MonoBehaviour
             
         }
         
-        if (fasterSpawnTime >= 10)
+        if (fasterSpawnTime >= 3)
         {
             spawnSpeed /= 1.2f;
             if(spawnSpeed < fastesSpeed)

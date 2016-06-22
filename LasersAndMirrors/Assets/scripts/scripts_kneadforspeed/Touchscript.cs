@@ -250,7 +250,7 @@ public class Touchscript : MonoBehaviour
 						{
 							//unten links
 	                        //moveTo(triggerUL.GetComponent<TriggerScript>().getCurrentBolzen());//moving the Backe to the Center 
-	                        signals = triggerUL.GetComponent<TriggerScript>().Signals;
+							signals = triggerUL.GetComponent<TriggerScript>().Signals;
 							lichtPos = 3;
 						}
 						if (mytouches [i].position.y > Screen.height / 2 && mytouches [i].position.x <= Screen.width / 2) 

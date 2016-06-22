@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/game_lazemaze/lazemaze_game.unity
+- path: Assets/game_kneadforspeed/kneadforspeed_game.unity
   isLoaded: 1
   isActive: 1

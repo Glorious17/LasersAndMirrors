@@ -43,7 +43,7 @@ public class EndSceneGUI : MonoBehaviour {
 
 		GUILayout.BeginArea (new Rect(Screen.width/2-neustart.fixedWidth/2, Screen.height - Screen.height/4, 500, 500));
 		if (GUILayout.Button ("", neustart)) {
-			SceneManager.LoadScene("kneadforspeed game");
+			SceneManager.LoadScene("kneadforspeed_game");
 		}
 		GUILayout.EndArea ();
 
