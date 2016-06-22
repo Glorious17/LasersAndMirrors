@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Credit_Script.cs">
     <Files>
-      <File FileName="Assets\scripts\Credit_Script.cs" Line="46" Column="14" />
-      <File FileName="Assets\scripts\scripts_kneadforspeed\diagonalMovement.cs" Line="49" Column="5" />
+      <File FileName="Assets\scripts\Credit_Script.cs" Line="45" Column="20" />
+      <File FileName="Assets\scripts\scripts_kneadforspeed\diagonalMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\scripts_goodcupbadcup\patternDrop.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
