@@ -41,12 +41,12 @@ public class Solidity : MonoBehaviour {
                 goodHitCombo = 0;
                 break;
         }
-        transform.localScale = new Vector3(scale * (strength / 100), 1, 0.5f);
+		transform.localScale = new Vector3(scale * (strength / 100), transform.localScale.y, transform.localScale.z);
 
         // Debug, falls die Skalierung zu groß wird
         if (transform.localScale.x <= 0) //wenn die Skalierung der Lebensleiste gen 0 geht
         {
-            transform.localScale = new Vector3(0, 0, 0);
+			transform.localScale = new Vector3(0, transform.localScale.y, transform.localScale.z);
             SceneManager.LoadScene("kneadforspeed_end");
         }
 

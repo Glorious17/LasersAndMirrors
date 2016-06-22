@@ -49,7 +49,7 @@ public class CountDown : MonoBehaviour
             else
             {
                 GUI.Box(new Rect(Screen.width / 2 - 90, Screen.width / 2 + 25, 180, 140), "GO");
-                Camera.main.GetComponent<diagonalMovement>().enabled = true;
+				Camera.main.GetComponent<diagonalMovement>().enabled = true;
             }
         }
 

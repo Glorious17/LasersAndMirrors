@@ -14,7 +14,7 @@ public class GUI_ScriptGB : MonoBehaviour {
 	private float screenWidth = Screen.width;
 	private float screenHeight = Screen.height;
 
-	public Texture lifeDown;
+	public GUIStyle lifeDown = new GUIStyle();
 	public int lifeCounter;
 	private float heightTimer = 0;
 	
@@ -52,8 +52,8 @@ public class GUI_ScriptGB : MonoBehaviour {
 		Vector2 contentOffset = pauseButton.contentOffset;
 		contentOffset.y = pauseButton.fixedHeight/3.3333f;
 		pauseButton.contentOffset = contentOffset;
-		lifeDown.height = (int)Screen.height / 6;
-		lifeDown.width = (int)Screen.width / 6;
+		lifeDown.fixedHeight = Screen.height / 6;
+		lifeDown.fixedWidth = Screen.width / 6;
 		
 		//Pausebutton Oben Rechts
 		GUILayout.BeginArea(new Rect(Screen.width - Screen.width/6, 5, pauseButton.fixedWidth, pauseButton.fixedHeight));
@@ -109,8 +109,8 @@ public class GUI_ScriptGB : MonoBehaviour {
 		GUILayout.EndArea();
 
 		if (lifeCounter > timeAnz) {
-			GUILayout.BeginArea (new Rect (Screen.width / 3, Screen.height / 3+heightTimer, 300, 300));
-			GUILayout.Label (lifeDown);
+			GUILayout.BeginArea (new Rect (Screen.width / 3, Screen.height / 3+heightTimer,lifeDown.fixedWidth, lifeDown.fixedHeight));
+			GUILayout.Label ("", lifeDown);
 			GUILayout.EndArea ();
 			heightTimer -= 0.5f;
 		} else
@@ -120,7 +120,7 @@ public class GUI_ScriptGB : MonoBehaviour {
 	}
 
 
-	//Die Herzen <3
+	//Die Herzen <3xs
 	private void drawLives()
 	{
 		GUILayout.BeginHorizontal();

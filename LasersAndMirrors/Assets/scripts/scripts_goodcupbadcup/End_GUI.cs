@@ -48,7 +48,7 @@ public class End_GUI : MonoBehaviour {
 		GUILayout.BeginArea (new Rect (Screen.width/2-250, Screen.height/5+5, 500, Screen.height));
 		//Die erreichten Werte werden untereinander angezeigt
 		GUILayout.Label ("Überlebte Wellen", fontStyleKlein);
-		GUILayout.Label ("" + GUI_ScriptGB.wave, fontStyleGross);
+		GUILayout.Label ("" + (GUI_ScriptGB.wave-1), fontStyleGross);
 		GUILayout.Label ("Score", fontStyleKlein);
 		GUILayout.Label ("" + GUI_ScriptGB.score, fontStyleGross);
 		GUILayout.Label("Final Score", fontStyleKlein);

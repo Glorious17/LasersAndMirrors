@@ -47,10 +47,9 @@ public class End_Gui_Lazemaze : MonoBehaviour {
 		}
 		GUILayout.EndArea ();
 
-		GUILayout.BeginArea (new Rect(10, Screen.height-40, 200,200));
-		if (GUILayout.Button ("", backButton)) {
-			SceneManager.LoadScene (0);
-			PlayerPrefs.SetInt ("3_points", 0); //Reset von points
+		GUILayout.BeginArea (new Rect(10, Screen.height-Screen.height/10, backButton.fixedWidth, backButton.fixedHeight));
+		if(GUILayout.Button("", backButton)){
+			SceneManager.LoadScene(0);
 		}
 		GUILayout.EndArea ();
 	}

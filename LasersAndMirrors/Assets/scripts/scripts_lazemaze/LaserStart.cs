@@ -32,6 +32,7 @@ public class LaserStart : MonoBehaviour {
 		laser.GetComponent<LaserScript> ().enabled = true;
 		//laser.SetActive (true);
 	}
+
 	void OnGUI(){
 		if (time == 1) {
 			GUILayout.BeginArea (new Rect (Screen.width / 2 - 33, Screen.height / 2 - 55, 150, 150));
