@@ -25,6 +25,7 @@ public class Grid : MonoBehaviour
 	private float fieldy;
 
 	private bool [,] besetzt;
+    private bool [,] barrierExists;
 
 	//private Vector3 laserStartPos;
 	public GameObject laser;
@@ -56,14 +57,24 @@ public class Grid : MonoBehaviour
 		}
 
 		besetzt = new bool[y,x];
+        barrierExists = new bool[x,y];
 
-		for (int i = 0; i < y; i++) {
-			for (int j = 0; j < x; j++) {
-				besetzt [i, j] = false;
-			}
-		}
+        for (int i = 0; i < y; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                besetzt[i, j] = false;
+            }
+        }
+        for (int i = 0; i < y; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                barrierExists[j, i] = false;
+            }
+        }
 
-		Marker ();
+        Marker ();
         barrier(); //Macht noch Probleme
         checkpoint();
 		LaserStartPos ();
@@ -120,7 +131,7 @@ public class Grid : MonoBehaviour
 		ytreffer = false;
 
 
-		if (besetzt [ypos, xpos] == false) {
+		if (besetzt [ypos, xpos] == false && !barrierExists[xpos,ypos]) {
 			if(mirrorCount < maxMirror){
 				mirrorCount++;
 				Debug.Log ("DEPLOY");
@@ -133,7 +144,7 @@ public class Grid : MonoBehaviour
 				besetzt [ypos, xpos] = true;
 			}
 		} 
-		else 
+		else if(!barrierExists[xpos, ypos])
 		{
 			Debug.Log ("TURN");
 			GameObject selectMirror = GameObject.Find ("" + ypos + xpos);
@@ -196,6 +207,7 @@ public class Grid : MonoBehaviour
     {
         Debug.Log("x = " + x + " y = " + z);
         Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(gridX[x]-(fieldx/2), gridY[y] - (fieldy/2), z));
+        barrierExists[x,y] = true;
         Instantiate(barrierObject, pos, Quaternion.identity);
     }
 
