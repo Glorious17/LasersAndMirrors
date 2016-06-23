@@ -20,9 +20,9 @@ public class LaserScript : MonoBehaviour {
 	public string endgame;
 
     private bool meltingAllowed = false;
-	
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 
 		c_counter = PlayerPrefs.GetInt("3_points");
 
@@ -85,13 +85,12 @@ public class LaserScript : MonoBehaviour {
 							pointCounter++;
 						}
 						if (vHit.collider.gameObject.tag == "Checkpoint") {
-
-							Debug.Log ("Check");
+                            Debug.Log ("Check");
 							c_counter++;
 							PlayerPrefs.SetInt ("3_points", c_counter);
-							Debug.Log ("Pounts " + c_counter);
-						}
-
+							Debug.Log ("Points " + c_counter);
+                        }
+                        
 						r = new Ray (vHit.point, nextVec); //neuen Raycast ausrichten
 					}
 				}

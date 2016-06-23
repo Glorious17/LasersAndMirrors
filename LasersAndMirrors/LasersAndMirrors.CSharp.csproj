@@ -58,18 +58,29 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MeltingWireScript.cs" />
-    <Compile Include="Assets\SphereAnimation.cs" />
-    <Compile Include="Assets\scripts\Credit_Script.cs" />
-    <Compile Include="Assets\scripts\GUI_CarouselMenu.cs" />
-    <Compile Include="Assets\scripts\IdleFloat.cs" />
-    <Compile Include="Assets\scripts\Menu_Script.cs" />
+    <Compile Include="Assets\scripts\Quit_Script.cs" />
     <Compile Include="Assets\scripts\ResetPP.cs" />
+    <Compile Include="Assets\scripts\scripts_carousel\GUI_CarouselMenu.cs" />
+    <Compile Include="Assets\scripts\scripts_carousel\IdleFloat.cs" />
+    <Compile Include="Assets\scripts\scripts_carousel\Menu_Script.cs" />
+    <Compile Include="Assets\scripts\scripts_credits\Credit_Script.cs" />
     <Compile Include="Assets\scripts\scripts_goodcupbadcup\CollisionCounter.cs" />
     <Compile Include="Assets\scripts\scripts_goodcupbadcup\CupCounter.cs" />
     <Compile Include="Assets\scripts\scripts_goodcupbadcup\End_GUI.cs" />
@@ -92,6 +103,7 @@
     <Compile Include="Assets\scripts\scripts_kneadforspeed\GUI_Script.cs" />
     <Compile Include="Assets\scripts\scripts_kneadforspeed\Lights.cs" />
     <Compile Include="Assets\scripts\scripts_kneadforspeed\Solidity.cs" />
+    <Compile Include="Assets\scripts\scripts_kneadforspeed\StartCounter.cs" />
     <Compile Include="Assets\scripts\scripts_kneadforspeed\StartSceneGUI.cs" />
     <Compile Include="Assets\scripts\scripts_kneadforspeed\Touchscript.cs" />
     <Compile Include="Assets\scripts\scripts_kneadforspeed\TriggerScript.cs" />
@@ -104,6 +116,7 @@
     <Compile Include="Assets\scripts\scripts_lazemaze\LaserScript.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\LaserStart.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\LockRotation.cs" />
+    <Compile Include="Assets\scripts\scripts_lazemaze\MeltingWireScript.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\MirrorCountGUI.cs" />
     <Compile Include="Assets\scripts\scripts_lazemaze\ResetPoints.cs" />
   </ItemGroup>
